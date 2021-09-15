@@ -41,16 +41,17 @@
 </head>
 <body>
   <!--Navbar-->
+  <div class="nav">
   <nav class="navbar">
-      <div class="navbar-burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  
-    <div class="navbar-menu">
-      <div class="navbar-end">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
+    <div class="navbar-end">
         <a class="navbar-item" href="home.html">
             About
           </a>
@@ -74,7 +75,8 @@
         </div>
       </div>
         </div>
-      </nav> 
+      </nav>
+    </div> 
   <!--Main Content-->
     <div class="brand">
         <div class="box">
@@ -129,5 +131,18 @@
             </div>
           </div>
     </div>
+    <script src="https://unpkg.com/vue@next"></script>
+<script>
+        
+        const VM = {
+          data() {
+            return {
+              navBarIsActive: false,  
+            }
+          }
+        }
+
+        Vue.createApp(VM).mount('.nav')
+      </script>
 </body>
 </html>
