@@ -11,34 +11,20 @@
       margin-right: 10px;
     }
     .menu{
-      width: 30%;
+      width: 50%;
       margin-top: 20px;
       margin-left: 10px;
     }
-    .image{
-        width: 400px;
-        margin-top: 10px;
+    .contents .image{
+      width: 200px;
     }
-    .box{
-      width: 400px;
+    .contents .subtitle{
+      font-family: cursive;
+      color: darkcyan;
     }
-    .box a{
-      margin-right: 40px;
-      margin-left: 20px;
-      color: black;
-    }
-    .box a:hover{
-      color: darkgoldenrod;
-    }
-    .panel{
-      margin-top: 10px;
-      width: 420px;
-    }
-    .panel-tabs a{
-      color: black;
-    }
-    .panel-tabs a:hover{
-      color: darkgoldenrod;
+    .contents .subtitle a{
+      font-family:'Times New Roman', Times, serif;
+      font-size: 15px;
     }
 </style>
 <html lang="en">
@@ -52,7 +38,7 @@
 <body>
   <!--Navbar-->
   <div class="nav">
-  <nav class="navbar is-warning">
+  <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="home.php"><span>Gainz</span></a>
 
@@ -102,7 +88,7 @@
   </div>
   <!--Main Content-->
   <div class="columns is-multiline">
-    <div class="column is-one-third">
+    <div class="column is-one-fifth">
       <aside class="menu">
         <p class="menu-label">
           General
@@ -112,6 +98,7 @@
           <li><a>Upper Body</a></li>
           <li><a>Lower Body</a></li>
           <li><a>Abs</a></li>
+          <li><a>Cardio</a></li>
         </ul>
         <p class="menu-label">
           Settings
@@ -132,63 +119,147 @@
       </aside>
       </div>
 
-      <!--Photo Album-->
-      <div class="column is-one-third">
-      
-      <figure class="image">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      <div class="box">
-        <a>Like</a>
-        <a>Comment</a>
-        <a>Share</a>
+      <div class="column is-four-fifths">
+        <div class="contents">
+        <h1 class="subtitle is-3">Chest / Triceps <a class="view" href="#">View all</a></h1>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-one-quarter">
+            <a class="image" href="#">
+                <img src="https://bulma.io/images/placeholders/128x128.png">
+            </a>
+          </div>
+          <div class="column is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
       </div>
-
-      <figure class="image">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      <div class="box">
-        <a>Like</a>
-        <a>Comment</a>
-        <a>Share</a>
+      <h1 class="subtitle is-3">Back / Biceps <a class="view" href="#">View all</a></h1>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
       </div>
-
-      <figure class="image">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-      <div class="box">
-        <a>Like</a>
-        <a>Comment</a>
-        <a>Share</a>
+      <h1 class="subtitle is-3">Shoulders <a class="view" href="#">View all</a></h1>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
       </div>
+      <h1 class="subtitle is-3">Legs <a class="view" href="#">View all</a></h1>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
       </div>
-
-      <!--Following/Followers-->
-    <div class="column is-one-third">
-    <article class="panel is-link">
-      <p class="panel-heading" style="text-align: center;">
-        Community
-      </p>
-      <p class="panel-tabs" style="font-size: 16px;">
-        <a>Following <span>0</span></a>
-        <a>Followers <span>0</span></a>
-      </p>
-      <div class="panel-block">
-        <p class="control">
-          <input class="input is-primary" type="text" placeholder="Search">
-        </p>
+      <h1 class="subtitle is-3">Abs <a class="view" href="#">View all</a></h1>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
       </div>
-      <table class="table">
-        <thead>
-          <tr>
-          </tr>
-        </thead>
-        <tbody>
-          
-        </tbody>
-      </table>
-    </article>
-  </div>
+      <h1 class="subtitle is-3">Cardio <a class="view" href="#">View all</a></h1>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+          <div class="column is-is-one-quarter">
+            <a class="image" href="#">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+          </a>
+          </div>
+      </div>
+    </div>
   </div>
   <script src="https://unpkg.com/vue@next"></script>
 <script>
