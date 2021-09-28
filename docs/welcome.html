@@ -13,7 +13,6 @@
         text-align: center;
         color: white;
     }
-    /* Centered text */
     .centered {
         position: absolute;
         top: 50%;
@@ -24,11 +23,14 @@
         color: white;
         font-size: 40px;
     }
-    .tile .title{
-        text-align: center;
+    .box .title{
+      font-size: 70px;
+        color:coral
     }
-    .tile .subtitle{
-        text-align: center;
+    .box .subtitle{
+        color: white;
+        font-size: 30px;
+        font-weight: 500;
     }
 </style>
 <html lang="en">
@@ -88,48 +90,46 @@
         </div>
     </div>
     <div class="content">
-        <div class="tile is-ancestor">
-            <div class="tile is-vertical is-12">
-              <div class="tile">
-                <div class="tile is-parent is-vertical">
-                  <article class="tile is-child notification is-danger is-light">
-                    <p class="title">Our Mission</p>
-                    <p class="subtitle">Since our release in 2021, 
-                        our mission has been to provide the fitness world with an 
-                        application that promotes, captures and shares 
-                        health and fitness each and everyone!</p>
-                  </article>
-                  <article class="tile is-child notification is-warning">
-                    <p class="title">Community</p>
-                    <p class="subtitle">We aim to make everyone feel welcomed 
-                        and appreciated. We do not tolerate cyber bullying or physical violence.
-                        If we feel our members are violating this, their account will be terminated. </p>
-                  </article>
-                </div>
-                <div class="tile is-parent">
-                  <article class="tile is-child notification is-info">
-                    <p class="title">Our Partners</p>
-                    <p class="subtitle"> State University of New York at New Paltz</p>
-                    <p class="subtitle"> Fall 2021 Web Programming Course</p>
-                    <p class="subtitle"> Instagram</p>
-                    <p class="subtitle"> Facebook</p>
-                  </article>
-                </div>
-              </div>
-              <div class="tile is-parent">
-                <article class="tile is-child notification is-light">
-                  <p class="title is-2">Developers</p>
-                  <p class="subtitle is-4">* Johnny Tejada *</p>
-                  <p class="subtitle">Full Time Student at SUNY New Paltz</p>
-                  <p class="subtitle">Majoring in Computer Science</p>
-                  <p class="subtitle">Graduation Class of 2022</p>
-                  <div class="content">
-                    <!-- Content -->
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
+      <div class="box">
+        <img src="2018072814475780_ND_ND5_6593-1-copy-1536x864.jpg" alt="Snow" width="80%">
+        <div class="centered">
+          <p class="title">Our Mission</p>
+          <p class="subtitle">Since our release in 2021, 
+              our mission has been to provide the fitness world with an 
+              application that promotes, captures and shares 
+              health and fitness to each and everyone!</p>
+        </div>
+      </div>
+      <div class="box">
+        <img src="5b17ab5cc6215ef0331908fd_Creative Ways to Build Community at Your Gym.jpg" alt="Snow" width="100%">
+        <div class="centered">
+          <p class="title">Community</p>
+          <p class="subtitle">We aim to make everyone feel welcomed 
+                and appreciated. We do not tolerate cyber bullying or physical violence.
+                If we feel our members are violating this, their account will be terminated. </p>
+                  
+        </div>
+      </div>
+      <div class="box">
+        <img src="getty_1173146314_414274.jpg" alt="Snow" width="80%">
+        <div class="centered">
+          <p class="title">Our Partners</p>
+          <p class="subtitle"> State University of New York at New Paltz</p>
+          <p class="subtitle"> Fall 2021 Web Programming Course</p>
+          <p class="subtitle"> Instagram</p>
+          <p class="subtitle"> Facebook</p>           
+        </div>
+      </div>
+      <div class="box">
+        <img src="12308197_900503006671095_8530434684587737500_o-1740x574.jpg" alt="Snow" width="100%">
+        <div class="centered">
+          <p class="title is-2">Developers</p>
+          <p class="subtitle is-8">* Johnny Tejada *</p>
+          <p class="subtitle">Full Time Student at SUNY New Paltz</p>
+          <p class="subtitle">Majoring in Computer Science</p>
+          <p class="subtitle">Graduation Class of 2022</p>       
+        </div>
+      </div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
 <script>
