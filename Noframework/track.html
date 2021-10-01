@@ -19,7 +19,7 @@
         display: inline;
     }
     .features p{
-        margin-right: 50px;
+        margin-right: 40px;
         font-size: 18px;
     }
     .features p span{
@@ -60,6 +60,13 @@
     .begin{
         margin-left: 260px;
     }
+    .bio{
+      margin-bottom: 20px;
+    }
+    .bio h1{
+      display: inline;
+      margin-right: 40px;
+    }
 </style>
 <html lang="en">
 <head>
@@ -67,14 +74,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Profile</title>
+    <title>Progress Tracker</title>
 </head>
 <body>
   <!--Navbar-->
   <div class="nav">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="home.php"><span>Gainz</span></a>
+      <a class="navbar-item" href="home.html"><span>Gainz</span></a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
         <span aria-hidden="true"></span>
@@ -85,12 +92,9 @@
   
     <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
           <div class="navbar-end">
-            <a class="navbar-item">
-              Settings
-            </a>
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-info">
+                <a class="button is-info" href="login.html">
                   Log out
                 </a>
               </div>
@@ -109,16 +113,20 @@
         </div>
     </div>
     <div class="column is-one-third">
-        <div class="features">
-            <h1 class="subtitle is-3"><span1>@username</span1></h1>
-            <h1 class="subtitle is-5">Bio</h1>
-            <p><span>0</span> Posts</p>
-            <p><span>0</span> Motivators</p>
-            <p><span>0</span> Inspires</p>
-        </div>
+      <div class="features">
+        <h1 class="subtitle is-3"><span1>@username</span1></h1>
+        <div class="bio">
+          <h1 class="subtitle">Age: N/A</h1>
+          <h1 class="subtitle">Height: N/A</h1>
+          <h1 class="subtitle">Weight: N/A</h1>
+      </div>
+        <p><span>0</span> Highlights</p>
+        <p><span>0</span> Motivators</p>
+        <p><span>0</span> Inspires</p>
+    </div>
         <div class="options">
             <a class="button is-link" style="font-weight: 600;">
-                Create Post
+                Share Highlight
               </a>
             <a class="button is-warning" style="font-weight: 600;">
                 Edit Profile
@@ -128,9 +136,9 @@
   </div>
   <div class="tabs is-centered">
     <ul>
-      <li><a href="userprofile.html">Posts</a></li>
+      <li><a href="userprofile.html">Highlights</a></li>
       <li class="is-active"><a href="track.html">Progress Tracker</a></li>
-      <li><a>Clubs</a></li>
+      <li><a href="planner.html">Workout Planner</a></li>
     </ul>
   </div>
   <div class="columns is-multiline is-mobile">
@@ -146,7 +154,10 @@
             <table class="table is-striped">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>Bench Press</th>
+                    <th>Incline Bench</th>
+                    <th>Overhead Press</th>
+                    <th>Dead lifts</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -176,7 +187,9 @@
             <table class="table is-striped">
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>Barbell Squats</th>
+                    <th>Split Squats</th>
+                    <th>Glute Bridges</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -207,7 +220,7 @@
         <table class="table is-striped">
             <thead>
               <tr>
-                <th></th>
+                <th>Miles Completed</th>
               </tr>
             </thead>
             <tbody>

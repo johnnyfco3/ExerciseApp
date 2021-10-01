@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<style>
+    .navbar span{
+        font-family: cursive;
+        font-size: 45px;
+        margin-right: 15px;
+        color: darkcyan;
+    }
+    .navbar a{
+      font-size: 17px;
+      margin-right: 10px;
+    }
+    .image{
+        width: 220px;
+        margin-top: 10px;
+        margin-left: 200px;
+    }
+    .column p{
+        display: inline;
+    }
+    .features p{
+        margin-right: 40px;
+        font-size: 18px;
+    }
+    .features p span{
+        font-size: 20px;
+        margin-right: 5px;
+    }
+    .options{
+        margin-top: 20px;
+    }
+    .options a{
+        margin-right: 10px;;
+    }
+    .tabs{
+        margin-top: 50px;
+    }
+    .tabs li{
+        margin-right: 120px;
+        margin-left: 100px;
+    }
+    .tabs a{
+        font-size: 20px;
+    }
+    .features span1{
+      font-family: cursive;
+      font-size: 40px;
+    }
+    .card .media-content{
+        text-align: center;
+        font-family: cursive;
+    }
+    .card .media-content .title{
+        font-size: 30px;
+    }
+    .cardio{
+        width: 50%;
+        margin-left: 340px;
+    }
+    .begin{
+        margin-left: 260px;
+    }
+    .bio{
+      margin-bottom: 20px;
+    }
+    .bio h1{
+      display: inline;
+      margin-right: 40px;
+    }
+    .planner{
+      width:100%;
+      height:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .calendar{
+      width:45rem;
+      height:52rem;
+      background-color: black;
+      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+    }
+    .month{
+      width:100%;
+      height:12rem;
+      background-color: green;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.2rem;
+      text-align: center;
+      text-shadow: 0 0.3rem .5rem rgba(0,0,0,0.5);
+    }
+    .month i{
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+    .month h1{
+      font-size: 3rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      margin-bottom: 1rem;
+    }
+    .month p{
+      font-size: 1.6rem;
+    }
+    .weekdays{
+      width: 100%;
+      height: 5rem;
+      padding: 0 0.4rem;
+      display: flex;
+      align-items: center;
+    }
+    .weekdays div{
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.1rem;
+      width: calc(44.2rem / 7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 0 0.3rem 0.5rem rgba(0,0,0,0.5);
+    }
+    .days{
+      width:100%;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.2rem;
+    }
+    .days div{
+      font-size: 1.4rem;
+      margin: 0.3rem;
+      width: calc(40.2rem / 7);
+      height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 0 0.03rem 0.5rem rgba(0,0,0,0.5);
+      transition: background-color 0.2%;
+    }
+    .days div:hover:not(.today){
+      background-color: #262626;
+      border: 0.2rem solid #777;
+      cursor: pointer;
+    }
+    .prev-date,
+    .next-date{
+      opacity: 0.5;
+    }
+    .today{
+      background-color: #167e56;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <title>Workout Planner</title>
+</head>
+<body>
+  <!--Navbar-->
+  <div class="nav">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="home.html"><span>Gainz</span></a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-info" href="login.html">
+                  Log out
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+      </nav> 
+  </div>
+  <!--Main Content-->
+  <div class="columns is-multiline">
+      <div class="column is-two-fifths">
+        <div class="user-image">
+            <figure class="image">
+                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+            </figure>
+        </div>
+    </div>
+    <div class="column is-one-third">
+      <div class="features">
+        <h1 class="subtitle is-3"><span1>@username</span1></h1>
+        <div class="bio">
+          <h1 class="subtitle">Age: N/A</h1>
+          <h1 class="subtitle">Height: N/A</h1>
+          <h1 class="subtitle">Weight: N/A</h1>
+      </div>
+        <p><span>0</span> Highlights</p>
+        <p><span>0</span> Motivators</p>
+        <p><span>0</span> Inspires</p>
+    </div>
+        <div class="options">
+            <a class="button is-link" style="font-weight: 600;">
+                Share Highlight
+              </a>
+            <a class="button is-warning" style="font-weight: 600;">
+                Edit Profile
+            </a>
+        </div>
+    </div>
+  </div>
+  <div class="tabs is-centered">
+    <ul>
+      <li><a href="userprofile.html">Highlights</a></li>
+      <li><a href="track.html">Progress Tracker</a></li>
+      <li class="is-active"><a href="planner.html">Workout Planner</a></li>
+    </ul>
+  </div>
+  <!--Planner-->
+  <div class="planner">
+  <div class="calendar">
+    <div class="month">
+      <i class="fas fa-angle-left prev"></i>
+      <div class="date">
+        <h1></h1>
+        <p></p>
+      </div>
+      <i class="fas fa-angle-right next"></i>
+    </div>
+    <div class="weekdays">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thur</div>
+      <div>Fri</div>
+      <div>Sat</div>
+    </div>
+    <div class="days">
+    </div>
+  </div>
+</div>
+<script> 
+
+const date = new Date();
+
+const renderCalendar = () =>{
+
+date.setDate(1);
+
+const monthDays = document.querySelector(".days");
+
+const lastDay = new Date(date.getFullYear(), date.getMonth()+1,0).getDate();
+
+const prevLastDay = new Date(date.getFullYear(), date.getMonth(),0).getDate();
+
+const firstDayIndex = date.getDay();
+
+const lastDayIndex = new Date(date.getFullYear(), date.getMonth()+1,0).getDate();
+
+const nextDays = 7 - lastDayIndex - 1;
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+document.querySelector(".date p").innerHTML = new Date().toDateString();
+
+let days ="";
+
+for(let x = firstDayIndex; x > 0; x--){
+  days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+}
+
+for(let i = 1; i <= lastDay; i++){
+  if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()){
+    days += `<div class="today">${i}</div>`;
+  }else{
+    days += `<div>${i}</div>`;
+  }
+}
+for(let j = 1; j <= nextDays; j++){
+  days += `<div class="next-date">${j}</div>`;
+}monthDays.innerHTML = days;
+}  
+
+document.querySelector(".prev").addEventListener("click",() => {
+  date.setMonth(date.getMonth() - 1);
+  renderCalendar();
+});
+
+document.querySelector(".next").addEventListener("click",() => {
+  date.setMonth(date.getMonth() + 1);
+  renderCalendar();
+});
+
+renderCalendar()
+
+</script>
+</body>
+</html>
