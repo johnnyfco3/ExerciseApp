@@ -46,6 +46,24 @@
       font-family: cursive;
       font-size: 40px;
     }
+    .features p{
+        margin-right: 40px;
+        font-size: 18px;
+        color: black;
+    }
+    .features p span{
+        font-size: 20px;
+        margin-right: 5px;
+    }
+    .features a{
+        margin-right: 40px;
+        font-size: 18px;
+        color: black;
+    }
+    .features a span{
+        font-size: 20px;
+        margin-right: 5px;
+    }
     .card .media-content{
         text-align: center;
         font-family: cursive;
@@ -167,7 +185,7 @@
   <div class="nav">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="home.html"><span>Gainz</span></a>
+      <a class="navbar-item" href="home-ch.html"><span>Gainz</span></a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
         <span aria-hidden="true"></span>
@@ -180,7 +198,7 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-info" href="login.html">
+                <a class="button is-info" href="welcome.html">
                   Log out
                 </a>
               </div>
@@ -207,14 +225,14 @@
           <h1 class="subtitle">Weight: N/A</h1>
       </div>
         <p><span>0</span> Highlights</p>
-        <p><span>0</span> Motivators</p>
-        <p><span>0</span> Inspires</p>
+        <a href="community.html"><span>0</span> Motivators</a>
+        <a href="community.html"><span>0</span> Inspires</a>
     </div>
         <div class="options">
-            <a class="button is-link" style="font-weight: 600;">
+            <a class="button is-link" style="font-weight: 600;" href="createpost.html">
                 Share Highlight
               </a>
-            <a class="button is-warning" style="font-weight: 600;">
+            <a class="button is-warning" style="font-weight: 600;" href="editprofile.html">
                 Edit Profile
             </a>
         </div>
@@ -320,5 +338,18 @@ document.querySelector(".next").addEventListener("click",() => {
 renderCalendar()
 
 </script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+        
+        const VM = {
+          data() {
+            return {
+              navBarIsActive: false,  
+            }
+          }
+        }
+
+        Vue.createApp(VM).mount('.nav')
+      </script>
 </body>
 </html>

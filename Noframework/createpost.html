@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<style>
+    .navbar span{
+        font-family: cursive;
+        font-size: 45px;
+        margin-right: 15px;
+        color: darkcyan;
+    }
+    .navbar a{
+      font-size: 17px;
+      margin-right: 10px;
+    }
+    .container h1{
+        text-align: center;
+        font-family: cursive;
+        font-size: 50px;
+        color: darkcyan;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/48609d9ad2.js" crossorigin="anonymous"></script>
+    <title>Create Highlight</title>
+</head>
+<body>
+  <!--Navbar-->
+  <div class="nav">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="home-ch.html"><span>Gainz</span></a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-info" href="welcome.html">
+                  Log out
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+      </nav> 
+  </div>
+  <!--Main Content-->
+    <div class="container">
+        <h1 class="title is-8">Create Highlight</h1>
+         <!--Main Content-->
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                      <form action="userprofile.html" method="post">
+                        <div class="field">
+                            <label class="label">Highlight</label>
+                            <div class="file has-name">
+                                <label class="file-label">
+                                  <input class="file-input" type="file" name="resume">
+                                  <span class="file-cta">
+                                    <span class="file-icon">
+                                      <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                      Upload…
+                                    </span>
+                                  </span>
+                                  <span class="file-name">
+                                    Screen Shot 2017-07-29 at 15.54.25.png
+                                  </span>
+                                </label>
+                              </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Category</label>
+                            <div class="select">
+                                <select>
+                                  <option>Chest/Triceps</option>
+                                  <option>Back/Biceps</option>
+                                  <option>Shoulders</option>
+                                  <option>Legs</option>
+                                  <option>Abs</option>
+                                  <option>Cardio</option>
+                                </select>
+                              </div>
+                          </div>
+          
+                        <div class="field">
+                          <label class="label">Comment</label>
+                          <div class="control">
+                            <input class="input is-info" type="text" name="comment">
+                          </div>
+                        </div>
+                        
+                        <div class="field is-grouped">
+                          <div class="control">
+                            <button class="button is-primary">Share</button>
+                          </div>
+                        </div>
+                        </form>
+                    </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+            
+            const VM = {
+              data() {
+                return {
+                  navBarIsActive: false,  
+                }
+              }
+            }
+    
+            Vue.createApp(VM).mount('.nav')
+          </script>
+</body>
+</html>
