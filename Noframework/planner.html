@@ -85,90 +85,142 @@
       display: inline;
       margin-right: 40px;
     }
-    .planner{
-      width:100%;
-      height:100%;
+    .container{
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container h2{
+      margin-top: 100px;
+      margin-bottom: 20px;
+      color: darkcyan;
+      font-family: cursive;
+    }
+    .container h1{
+      margin-bottom: 20px;
+      color: darkcyan;
+      font-family: cursive;
+    }
+    .task_container{
+      display: flex;
+      margin-bottom: 3rem;
+      padding: 10px;
+    }
+    .task_container .task_name{
+      padding: 10px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+    .task_name.selected{
+      box-shadow: 0px 0px 0px 2px black inset;
+    }
+    #deselect{
+      background-color: darkslateblue;
+      color: white;
+    }
+    .schedule_container{
+      background: linear-gradient(#ebf4f5,#b5c6e0);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+    .days_container{
+      display: flex;
+    }
+    .corner{
+      width: 50px;
+      height: 70px;
+      margin: 2px;
+    }
+    .day{
+      width: 100px;
+      border: solid 1px white;
+      color: darkcyan;
+      font-size: 17px;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 2px;
+    }
+    .part_day{
+      display: flex;
+    }
+    .time{
+      width: 50px;
+      height: 70px;
       color: white;
+      background-color: #103783;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2px;
     }
-    .calendar{
-      width:45rem;
-      height:52rem;
-      background-color: black;
-      box-shadow: 0 0.5rem 3rem rgba(0,0,0,0.4);
+    .task{
+      background-color: white;
+      height: 70px;
+      width: 100px;
+      margin: 2px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
     }
-    .month{
-      width:100%;
-      height:12rem;
-      background-color: green;
+    .deleteBtn{
+      padding: 10px 25px;
+      margin-top: 20px;
+      border: none;
+      background-color: white;
+      border: solid 2px black;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      outline: none;
+    }
+    .deleteBtn:hover{
+      background-color: #eee;
+    }
+    .pop-up_container{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      height: 100%;
+      width: 100%;
+      background-color:rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .pop-up{
+      width: 300px;
+      height: 130px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #9bafd9;
+      padding: 15px;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .btn_container{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.2rem;
-      text-align: center;
-      text-shadow: 0 0.3rem .5rem rgba(0,0,0,0.5);
     }
-    .month i{
-      font-size: 2.5rem;
+    .btn_answer{
+      margin: 0 20px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
       cursor: pointer;
-    }
-    .month h1{
-      font-size: 3rem;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      margin-bottom: 1rem;
-    }
-    .month p{
-      font-size: 1.6rem;
-    }
-    .weekdays{
-      width: 100%;
-      height: 5rem;
-      padding: 0 0.4rem;
-      display: flex;
-      align-items: center;
-    }
-    .weekdays div{
-      font-size: 1.5rem;
-      font-weight: 400;
-      letter-spacing: 0.1rem;
-      width: calc(44.2rem / 7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-shadow: 0 0.3rem 0.5rem rgba(0,0,0,0.5);
-    }
-    .days{
-      width:100%;
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0.2rem;
-    }
-    .days div{
-      font-size: 1.4rem;
-      margin: 0.3rem;
-      width: calc(40.2rem / 7);
-      height: 5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-shadow: 0 0.03rem 0.5rem rgba(0,0,0,0.5);
-      transition: background-color 0.2%;
-    }
-    .days div:hover:not(.today){
-      background-color: #262626;
-      border: 0.2rem solid #777;
-      cursor: pointer;
-    }
-    .prev-date,
-    .next-date{
-      opacity: 0.5;
-    }
-    .today{
-      background-color: #167e56;
     }
 </style>
 <html lang="en">
@@ -177,7 +229,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/48609d9ad2.js" crossorigin="anonymous"></script>
     <title>Workout Planner</title>
 </head>
 <body>
@@ -246,98 +298,199 @@
     </ul>
   </div>
   <!--Planner-->
-  <div class="planner">
-  <div class="calendar">
-    <div class="month">
-      <i class="fas fa-angle-left prev"></i>
-      <div class="date">
-        <h1></h1>
-        <p></p>
+  <div class="container">
+    <h2 class="title is-2">Select a workout</h2>
+
+    <div class="task_container">
+      <div class="task_name" id="chest" style="background-color: crimson;">Chest/Triceps</div>
+      <div class="task_name" id="back" style="background-color:blue;">Back/Biceps</div>
+      <div class="task_name" id="leg" style="background-color:orange;">Legs</div>
+      <div class="task_name" id="abs" style="background-color:darkkhaki;">Abs</div>
+      <div class="task_name" id="cardio" style="background-color: deeppink;">Cardio</div>
+      <div class="task_name" id="deselect">Deselect All</div>
+    </div>
+
+    <h1 class="subtitle is-4">Add selected workout to the schedule</h1>
+
+    <div class="schedule_container">
+      <div class="days_container">
+        <span class="corner"></span>
+        <div class="day">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
       </div>
-      <i class="fas fa-angle-right next"></i>
+      <div class="part_day">
+        <span class="time">6am <br> - <br> 9am</span>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+      </div>
+      <div class="part_day">
+        <span class="time">9am <br> - <br> 12pm</span>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+      </div>
+      <div class="part_day">
+        <span class="time">12pm <br> - <br> 2pm</span>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+      </div>
+      <div class="part_day">
+        <span class="time">2pm <br> - <br> 6pm</span>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+      </div>
+      <div class="part_day">
+        <span class="time">6pm <br> - <br> 9pm</span>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+      </div>
+      <div class="part_day">
+        <span class="time">9pm <br> - <br> 12am</span>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+      </div>
     </div>
-    <div class="weekdays">
-      <div>Sun</div>
-      <div>Mon</div>
-      <div>Tue</div>
-      <div>Wed</div>
-      <div>Thur</div>
-      <div>Fri</div>
-      <div>Sat</div>
+    
+    <button class="deleteBtn">Reset Schedule</button>
+
+    <div class="pop-up_container">
+      <div class="pop-up">
+        <h4>Are you sure you want to delete all the workouts from your schedule?</h4>
+        <div class="btn_container">
+          <div class="btn_answer" id="btn_yes">Yes</div>
+          <div class="btn_answer" id="btn_no">No</div>
+        </div>
+      </div>
     </div>
-    <div class="days">
-    </div>
-  </div>
 </div>
-<script> 
 
-const date = new Date();
+<script>
+const chestTask = document.getElementById('chest');
+const backTask = document.getElementById('back');
+const legTask = document.getElementById('leg');
+const absTask = document.getElementById('abs');
+const cardioTask = document.getElementById('cardio');
+const deselectBtn = document.getElementById('deselect');
+const taskContainer = document.querySelector('.task_container');
+const scheduleContainer = document.querySelector('.schedule_container');
+const resetBtn = document.querySelector('.deleteBtn');
+const popUp = document.querySelector('.pop-up_container');
+const noBtn = document.getElementById('btn_no');
+const yesBtn = document.getElementById('btn_yes');
 
-const renderCalendar = () =>{
+let selectedColor, active 
 
-date.setDate(1);
+taskContainer.addEventListener('click', selectTask);
+scheduleContainer.addEventListener('click', setColors);
+deselectBtn.addEventListener('click', resetTasks);
+resetBtn.addEventListener('click', openPopup);
+noBtn.addEventListener('click', closePopup);
+yesBtn.addEventListener('click', deleteTasks);
 
-const monthDays = document.querySelector(".days");
+function selectTask(e) {
+  resetTasks();
 
-const lastDay = new Date(date.getFullYear(), date.getMonth()+1,0).getDate();
+  taskColor = e.target.style.backgroundColor;
 
-const prevLastDay = new Date(date.getFullYear(), date.getMonth(),0).getDate();
-
-const firstDayIndex = date.getDay();
-
-const lastDayIndex = new Date(date.getFullYear(), date.getMonth()+1,0).getDate();
-
-const nextDays = 7 - lastDayIndex - 1;
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-document.querySelector(".date p").innerHTML = new Date().toDateString();
-
-let days ="";
-
-for(let x = firstDayIndex; x > 0; x--){
-  days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+  switch(e.target.id){
+    case 'chest':
+      activeTask(chestTask, taskColor);
+      break
+    case 'back':
+      activeTask(backTask, taskColor);
+      break
+    case 'leg':
+      activeTask(legTask, taskColor);
+      break
+    case 'abs':
+      activeTask(absTask, taskColor);
+      break
+    case 'cardio':
+      activeTask(cardioTask, taskColor);
+      break
+  } 
 }
 
-for(let i = 1; i <= lastDay; i++){
-  if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()){
-    days += `<div class="today">${i}</div>`;
-  }else{
-    days += `<div>${i}</div>`;
+function setColors(e){
+  if(e.target.classList.contains('task') && active === true){
+    e.target.style.backgroundColor = selectedColor;
   }
 }
-for(let j = 1; j <= nextDays; j++){
-  days += `<div class="next-date">${j}</div>`;
-}monthDays.innerHTML = days;
-}  
 
-document.querySelector(".prev").addEventListener("click",() => {
-  date.setMonth(date.getMonth() - 1);
-  renderCalendar();
-});
+function activeTask(task, color) {
+  task.classList.toggle('selected');
 
-document.querySelector(".next").addEventListener("click",() => {
-  date.setMonth(date.getMonth() + 1);
-  renderCalendar();
-});
+  if(task.classList.contains('selected')){
+    active = true;
+    selectedColor = color;
+    return selectorColor;
+  }else{
+    active = false;
+  }
+}
 
-renderCalendar()
+function resetTasks(){
+  const allTasks = document.querySelectorAll('.task_name');
 
+  allTasks.forEach((item)=>{
+    item.className = 'task_name';
+  })
+}
+
+function deleteTasks(){
+  const tasks = document.querySelectorAll('.task');
+
+  tasks.forEach((item)=>{
+    item.innerHTML = '';
+    item.style.backgroundColor = 'white';
+  })
+
+  closePopup()
+}
+
+function openPopup(){
+  popUp.style.display = 'flex';
+}
+
+function closePopup(){
+  popUp.style.display = 'none';
+}
 </script>
+
 <script src="https://unpkg.com/vue@next"></script>
 <script>
         
