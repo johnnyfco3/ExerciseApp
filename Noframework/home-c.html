@@ -20,6 +20,7 @@
       font-family: cursive;
       color: darkcyan;
       text-align: center;
+      font-size: 40px;
     }
     .contents .subtitle a{
       font-family:'Times New Roman', Times, serif;
@@ -35,6 +36,53 @@
     }
     .tabs a{
         font-size: 20px;
+    }
+    .popup .overlay{
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100vh;
+      height: 100vh;
+      z-index: 1;
+      display: none;
+    }
+    .popup .content{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%) scale(0);
+      background: beige;
+      width: 450px;
+      height: 220px;
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .popup .close-btn{
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 30px;
+      height: 30px;
+      background: #222;
+      color: #fff;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 50%;
+    }
+    .popup.active .overlay{
+      display: block;
+    }
+    .popup.active .content{
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%,-50%) scale(1);
+    }
+    .popup h1{
+      font-family: cursive;
     }
 </style>
 <html lang="en">
@@ -96,51 +144,123 @@
   <div class="columns is-multiline">
       <div class="column is-full">
         <div class="contents">
-          <h1 class="subtitle is-3">Workout Planner <a class="view" href="planner.html">View</a></h1>
+          <h1 class="subtitle">Workout Planner <a class="view" href="planner.html">View</a></h1>
           <div class="columns is-multiline is-mobile">
           <div class="column is-one-fifth">
             <label class="days">Monday</label>
-            <a class="image" href="#">
+            <a class="image" onclick="togglePopup()">
                 <img src="16271276482_35dee02291_b.jpg">
             </a>
+            <div class="popup" id="popup-1">
+              <div class="overlay"></div>
+              <div class="content">
+                <div class="close-btn" onclick="togglePopup()">&times;</div>
+                <h1>Chest and Triceps <br> Day</h1>
+                <a class="button is-primary" style="font-weight: 600;" href="planner.html">
+                  View
+              </a>
+              </div>
+            </div>
           </div>
           <div class="column is-one-fifth">
             <label class="days">Tuesday</label>
-            <a class="image" href="#">
+            <a class="image" onclick="togglePopup1()">
               <img src="16271276482_35dee02291_b.jpg">
           </a>
+          <div class="popup" id="popup-2">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup1()">&times;</div>
+              <h1>Back and Biceps <br> Day</h1>
+              <a class="button is-primary" style="font-weight: 600;" href="planner.html">
+                View
+            </a>
+            </div>
+          </div>
           </div>
           <div class="column is-one-fifth">
             <label class="days">Wednesday</label>
-            <a class="image" href="#">
+            <a class="image" onclick="togglePopup2()">
               <img src="16271276482_35dee02291_b.jpg">
           </a>
+          <div class="popup" id="popup-3">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup2()">&times;</div>
+              <h1>Legs Day</h1>
+              <a class="button is-primary" style="font-weight: 600;" href="planner.html">
+                View
+            </a>
+            </div>
+          </div>
           </div>
           <div class="column is-one-fifth">
             <label class="days">Thursday</label>
-            <a class="image" href="#">
+            <a class="image" onclick="togglePopup3()">
               <img src="16271276482_35dee02291_b.jpg">
           </a>
+          <div class="popup" id="popup-4">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup3()">&times;</div>
+              <h1>Chest and Triceps<br> Day</h1>
+              <a class="button is-primary" style="font-weight: 600;" href="planner.html">
+                View
+            </a>
+            </div>
+          </div>
           </div>
           <div class="column is-one-fifth">
             <label class="days">Friday</label>
-            <a class="image" href="#">
+            <a class="image" onclick="togglePopup4()">
               <img src="16271276482_35dee02291_b.jpg">
           </a>
+          <div class="popup" id="popup-5">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup4()">&times;</div>
+              <h1>Back and Biceps<br> Day</h1>
+              <a class="button is-primary" style="font-weight: 600;" href="planner.html">
+                View
+            </a>
+            </div>
+          </div>
           </div>
           <div class="column is-one-fifth">
             <label class="days">Saturday</label>
-            <a class="image" href="#">
+            <a class="image" onclick="togglePopup5()">
               <img src="16271276482_35dee02291_b.jpg">
           </a>
+          <div class="popup" id="popup-6">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup5()">&times;</div>
+              <h1>Rest Day</h1>
+              <a class="button is-primary" style="font-weight: 600;" href="planner.html">
+                View
+            </a>
+            </div>
+          </div>
           </div>
           <div class="column is-one-fifth">
             <label class="days">Sunday</label>
-            <a class="image" href="#">
+            <a class="image" onclick="togglePopup6()">
               <img src="16271276482_35dee02291_b.jpg">
           </a>
+          <div class="popup" id="popup-7">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup6()">&times;</div>
+              <h1>Rest Day</h1>
+              <a class="button is-primary" style="font-weight: 600;" href="planner.html">
+                View
+            </a>
+            </div>
+          </div>
           </div>
       </div>
+      <h1 class="subtitle">Browser</h1>
+      
       <div class="tabs is-centered">
         <ul>
           <li><a href="home-ch.html">Chest/Triceps</a></li>
@@ -201,7 +321,27 @@
 </div>
   <script src="https://unpkg.com/vue@next"></script>
 <script>
-        
+  function togglePopup(){
+    document.getElementById("popup-1").classList.toggle("active");
+  }
+  function togglePopup1(){
+    document.getElementById("popup-2").classList.toggle("active");
+  }
+  function togglePopup2(){
+    document.getElementById("popup-3").classList.toggle("active");
+  }
+  function togglePopup3(){
+    document.getElementById("popup-4").classList.toggle("active");
+  }
+  function togglePopup4(){
+    document.getElementById("popup-5").classList.toggle("active");
+  }
+  function togglePopup5(){
+    document.getElementById("popup-6").classList.toggle("active");
+  }
+  function togglePopup6(){
+    document.getElementById("popup-7").classList.toggle("active");
+  }
         const VM = {
           data() {
             return {
