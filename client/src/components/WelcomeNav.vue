@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar is-light">
   <div class="navbar-brand">
     <a class="navbar-item"><span>Gainz</span></a>
 

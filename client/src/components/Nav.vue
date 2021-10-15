@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar is-light">
     <div class="navbar-brand">
       <a class="navbar-item" href="home-ch.html"><span>Gainz</span></a>
 
