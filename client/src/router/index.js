@@ -25,27 +25,32 @@ const routes = [
   {
     path: '/community',
     name: 'Community',
-    component: Community
+    component: Community,
+    meta: { requiresLogin: true }
   },
   {
     path: '/createpost',
     name: 'CreatePost',
-    component: CreatePost
+    component: CreatePost,
+    meta: { requiresLogin: true }
   },
   {
     path: '/editprofile',
     name: 'EditProfile',
-    component: EditProfile
+    component: EditProfile,
+    meta: { requiresLogin: true }
   },
   {
     path: '/info',
     name: 'Info',
-    component: Info
+    component: Info,
+    meta: { requiresLogin: true }
   },
   {
     path: '/planner',
     name: 'Planner',
-    component: Planner
+    component: Planner,
+    meta: { requiresLogin: true }
   },
   {
     path: '/signup',
@@ -55,17 +60,20 @@ const routes = [
   {
     path: '/track',
     name: 'Track',
-    component: Track
+    component: Track,
+    meta: { requiresLogin: true }
   },
   {
     path: '/trackdts',
     name: 'Trackdts',
-    component: Trackdts
+    component: Trackdts,
+    meta: { requiresLogin: true }
   },
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: { requiresLogin: true }
   },
   {
     path: '/login',
@@ -82,6 +90,14 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) =>{
+  if(to.meta.requiresLogin && !sessionStorage.user){
+    next('/login');
+  }else{
+    next();
+  }
 })
 
 export default router

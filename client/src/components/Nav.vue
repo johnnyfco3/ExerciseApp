@@ -12,21 +12,21 @@
   
     <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
       <div class="navbar-start">
-        <a class="navbar-item" href="home-ch.html">
+        <a class="navbar-item is-tab" href="home-ch.html">
           Home
         </a>
 
-        <a class="navbar-item" href="createpost.html">
+        <a class="navbar-item is-tab" href="createpost.html">
           Post
         </a>
 
-        <a class="navbar-item" href="userprofile.html">
+        <a class="navbar-item is-tab" href="userprofile.html">
           Profile
         </a>
-        <a class="navbar-item" href="planner.html">
+        <a class="navbar-item is-tab" href="planner.html">
           Workout Planner
         </a>
-        <a class="navbar-item" href="community.html">
+        <a class="navbar-item is-tab" href="community.html">
           Community
         </a>
       </div>

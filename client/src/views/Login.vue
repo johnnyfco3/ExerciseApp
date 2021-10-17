@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="content">
-        <form action="home-ch.html" method="post">
+        <form action="/home" method="post">
           <div class="field">
             <label class="label">Username</label>
             <div class="control">

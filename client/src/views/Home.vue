@@ -6,7 +6,7 @@
       <div class="column is-full">
         <div class="contents">
           <h1 class="subtitle1"> Workout Planner <a class="view" href="planner.html">View all</a></h1>
-          <w-planner />
+          <W-Planner />
       <h1 class="subtitle1">Browser</h1>
       <div class="tabs is-centered">
         <ul>
