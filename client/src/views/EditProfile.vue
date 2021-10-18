@@ -4,10 +4,12 @@
   <div class="container">
         <h1 class="title is-8">Edit Profile</h1>
          <!--Main Content-->
+          <div class="columns">
+        <div class="column is-two-thirds">
             <div class="card">
                 <div class="card-content">
                     <div class="content">
-                      <form action="userprofile.html" method="post">
+                      <form action="/profile" method="post">
                         <div class="field">
                             <label class="label">Profile Picture</label>
                             <div class="file has-name">
@@ -64,6 +66,8 @@
                         </form>
                     </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
     </div>

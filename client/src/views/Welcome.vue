@@ -1,8 +1,8 @@
 <template>
-  <div class="main-content">
+  <div class="nav">
     <WelcomeNav />
     <div style="background-image: url('https://wallpapercave.com/wp/wp3699391.jpg');
-background-size: cover; height:1600px; padding-top: 80px; text-align: center;">
+background-size: cover; height:1500px; padding-top: 80px; text-align: center;">
   <img src="https://i.pinimg.com/736x/44/9a/f1/449af1b309336d6b61c200db5410d4ea.jpg" style="height:150px; border-radius: 50%; border: 10px solid #FEDE00;">
   <h1 style="font-size:140px; color: white ; margin:10px; font-family: cursive;">Gainz</h1>
   <p style="font-size:50px; color: orange; font-weight:700;"><em>The App of Fitness and Transformations</em></p>

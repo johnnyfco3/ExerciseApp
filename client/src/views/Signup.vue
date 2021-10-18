@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="content">
-                      <form action="info.html" method="post">
+                      <form action="/info" method="post">
                         <div class="field">
                             <label class="label">Full Name</label>
                             <div class="control">

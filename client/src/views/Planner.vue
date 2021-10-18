@@ -4,13 +4,15 @@
     <User-Info />
   <div class="tabs is-centered">
     <ul>
-      <li><a href="userprofile.html">Highlights</a></li>
-      <li><a href="track.html">Progress Tracker</a></li>
-      <li class="is-active"><a href="planner.html">Workout Planner</a></li>
+      <li><router-link to="/profile">Highlights</router-link></li>
+      <li><router-link to="/track">Progress Tracker</router-link></li>
+      <li class="is-active"><a>Workout Planner</a></li>
     </ul>
   </div>
   <!--Planner-->
   <div class="container">
+    <div class="columns">
+        <div class="column is-fullwidth">
       <div class="card">
         <div class="card-content">
             <div class="content">
@@ -197,6 +199,8 @@
     </div>
                 </form>
             </div>
+</div>
+</div>
 </div>
 </div>
 </div>

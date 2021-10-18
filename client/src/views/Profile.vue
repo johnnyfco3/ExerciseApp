@@ -5,8 +5,8 @@
       <div class="tabs is-centered">
     <ul>
       <li class="is-active"><a>Highlights</a></li>
-      <li><a href="track.html">Progress Tracker</a></li>
-      <li><a href="planner.html">Workout Planner</a></li>
+      <li><router-link to="/track">Progress Tracker</router-link></li>
+      <li><router-link to="/planner">Workout Planner</router-link></li>
     </ul>
   </div>
   <Post />

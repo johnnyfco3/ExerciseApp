@@ -11,18 +11,18 @@
         </div>
       </div>
       <div class="content">
-        <form action="/home" method="post">
+        <form method="post" @submit.prevent="login()">
           <div class="field">
             <label class="label">Username</label>
             <div class="control">
-              <input class="input is-info" type="text" required>
+              <input class="input is-info" type="text" required v-model="username">
             </div>
           </div>
           
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input class="input is-info" type="password" required>
+              <input class="input is-info" type="password" required v-model="password">
             </div>
          </div>
           
@@ -52,8 +52,19 @@
 </template>
 
 <script>
-export default {
+import Session from "../services/session";
 
+export default {
+  data: () => ({
+    username: null,
+    password: null,
+    Session
+  }),
+  methods: {
+    login(){
+      this.Session.Login(this.username, this.password);
+    }
+  }
 }
 </script>
 

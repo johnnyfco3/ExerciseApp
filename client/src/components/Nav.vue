@@ -1,7 +1,8 @@
 <template>
-  <nav class="navbar is-light">
+  <nav class="navbar is-warning">
     <div class="navbar-brand">
-      <a class="navbar-item" href="home-ch.html"><span>Gainz</span></a>
+      <img src="https://i.pinimg.com/736x/44/9a/f1/449af1b309336d6b61c200db5410d4ea.jpg" style="height:75px; border-radius: 50%; border: 5px solid #FEDE00;">
+      <router-link to="/home"><span>Gainz</span></router-link>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
         <span aria-hidden="true"></span>
@@ -12,23 +13,25 @@
   
     <div class="navbar-menu" :class="{ 'is-active': navBarIsActive }">
       <div class="navbar-start">
-        <a class="navbar-item is-tab" href="home-ch.html">
+        <router-link class="navbar-item is-tab" to="/home" active-class="is-active" exact>
           Home
-        </a>
+        </router-link>
 
-        <a class="navbar-item is-tab" href="createpost.html">
+        <router-link class="navbar-item is-tab" to="/createpost" active-class="is-active">
           Post
-        </a>
+        </router-link>
 
-        <a class="navbar-item is-tab" href="userprofile.html">
+        <router-link class="navbar-item is-tab" to="/profile" active-class="is-active">
           Profile
-        </a>
-        <a class="navbar-item is-tab" href="planner.html">
+        </router-link>
+
+        <router-link class="navbar-item is-tab" to="/planner" active-class="is-active">
           Workout Planner
-        </a>
-        <a class="navbar-item is-tab" href="community.html">
+        </router-link>
+        
+        <router-link class="navbar-item is-tab" to="/community" active-class="is-active">
           Community
-        </a>
+        </router-link>
       </div>
           <div class="navbar-end">
             <div class="navbar-item">
@@ -54,5 +57,9 @@ export default {
         font-size: 45px;
         margin-right: 15px;
         color: darkcyan;
+}
+.navbar-item{
+  font-weight: 600;
+  font-size: 18px;
 }
 </style>

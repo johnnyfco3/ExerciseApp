@@ -1,17 +1,17 @@
 <template>
-  <div class="nav">
+  <div class="planner">
       <Nav />
       <User-Info />
-      <div class="columns is-multiline is-mobile">
-      <div class="column is-half">
-        <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">Upper Body</p>
-            </div>
-          </div>
-          <div class="content">
+      <div class="tabs is-centered">
+    <ul>
+      <li><router-link to="/profile">Highlights</router-link></li>
+      <li class="is-active"><a>Progress Tracker</a></li>
+      <li><router-link to="/planner">Workout Planner</router-link></li>
+    </ul>
+  </div>
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-half">
+            <h1 class="subtitle1">Upper Body</h1>
             <table class="table is-striped">
                 <thead>
                   <tr>
@@ -27,25 +27,15 @@
                   </tr>
                 </tbody>
               </table>
-          </div>
           <div class="begin">
             <a class="button is-primary" style="font-weight: 600;" href="trackdtls.html">
                 Edit
               </a>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="column is-half">
-        <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">Lower Body</p>
-            </div>
-          </div>
-          <div class="content">
-            <table class="table is-striped">
+           </div>
+            <div class="column is-half">
+              <h1 class="subtitle1">Lower Body</h1>
+            <table class="table is-striped" style="width: 700px;">
                 <thead>
                   <tr>
                     <th>Barbell Squats</th>
@@ -59,26 +49,16 @@
                   </tr>
                 </tbody>
               </table>
-          </div>
           <div class="begin">
             <a class="button is-primary" style="font-weight: 600;" href="trackdtls.html">
                 Edit
               </a>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="cardio">
-    <div class="card">
-    <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-          <p class="title is-4">Cardio</p>
-        </div>
-      </div>
-      <div class="content">
-        <table class="table is-striped">
+          </div>
+          <div class="cardio">
+       <div class="column" style="margin-left:350px; margin-top: 50px;">
+         <h1 class="subtitle1">Cardio</h1>
+        <table class="table is-striped" style="width: 700px;">
             <thead>
               <tr>
                 <th>Miles Completed</th>
@@ -90,16 +70,15 @@
               </tr>
             </tbody>
           </table>
-      </div>
       <div class="begin">
         <a class="button is-primary" style="font-weight: 600;" href="trackdtls.html">
             Edit
           </a>
       </div>
-    </div>
-</div>
-  </div>
-  </div>
+      </div>
+      </div>
+      </div>
+      </div>
 </template>
 
 <script>
@@ -112,5 +91,10 @@ export default {
 </script>
 
 <style>
-
+.column .subtitle1{
+  font-family: cursive;
+      color: darkcyan;
+      font-size: 40px;
+      text-align: center;
+}
 </style>

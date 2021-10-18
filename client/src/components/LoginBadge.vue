@@ -1,6 +1,6 @@
 <template>
     <div class="buttons" v-if="!Session.user">
-        <a class="button is-primary" @click="singup">
+        <a class="button is-primary" @click="signup">
             <strong>Sign up</strong>
         </a>
         <a class="button is-info" @click="login">

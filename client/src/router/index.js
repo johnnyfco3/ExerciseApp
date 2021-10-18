@@ -10,6 +10,7 @@ import Signup from '../views/Signup.vue'
 import Track from '../views/Track.vue'
 import Trackdts from '../views/Trackdts.vue'
 import Profile from '../views/Profile.vue'
+import Session from '../services/session'
 
 const routes = [
   {
@@ -20,7 +21,8 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { requiresLogin: true }
   },
   {
     path: '/community',
@@ -74,6 +76,7 @@ const routes = [
     name: 'Profile',
     component: Profile,
     meta: { requiresLogin: true }
+    
   },
   {
     path: '/login',
@@ -93,7 +96,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) =>{
-  if(to.meta.requiresLogin && !sessionStorage.user){
+  if(to.meta.requiresLogin && !Session.user){
     next('/login');
   }else{
     next();

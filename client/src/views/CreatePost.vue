@@ -4,6 +4,8 @@
       <div class="container">
         <h1 class="title is-8">Create Highlight</h1>
          <!--Main Content-->
+          <div class="columns">
+        <div class="column is-two-thirds">
             <div class="card">
                 <div class="card-content">
                     <div class="content">
@@ -59,6 +61,8 @@
         </div>
     </div>
     </div>
+  </div>
+  </div>
   </div>
 </template>
 

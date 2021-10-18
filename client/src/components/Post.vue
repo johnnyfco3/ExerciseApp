@@ -1,21 +1,18 @@
 <template>
-<div class="card">
+ <div class="columns">
+        <div class="column is-two-thirds">
+      <div class="card">
   <div class="card-image">
-    <figure class="image is-4by3">
+    <figure class="image is-4by5">
       <img src="" alt="">
     </figure>
   </div>
   <div class="card-content">
     <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="" alt="">
-        </figure>
-      </div>
       <div class="media-content">
         <p class="title is-4">Name Name</p>
-        <p class="subtitle is-6">@username</p>
-        <p class="subtitle">Category</p>
+        <p class="subtitle is-4"><br>@username<br></p>
+        <p class="subtitle is-6">Category</p>
       </div>
     </div>
 
@@ -32,6 +29,8 @@
     <a href="#" class="card-footer-item">Comment</a>
     <a href="#" class="card-footer-item">Share</a>
   </footer>
+</div>    
+</div> 
 </div>
 </template>
 

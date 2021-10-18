@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="content">
-                      <form action="home.html" method="post">
+                      <form action="/home" method="post">
                         <div class="field">
                             <label class="label">Age</label>
                             <div class="control">

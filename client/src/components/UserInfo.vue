@@ -17,16 +17,16 @@
           <h1 class="subtitle">Weight: N/A</h1>
       </div>
         <p><span>0</span> Highlights</p>
-        <a href="community.html"><span>0</span> Motivators</a>
-        <a href="community.html"><span>0</span> Inspires</a>
+        <router-link to="/community"><span>0</span> Motivators</router-link>
+        <router-link to="/community"><span>0</span> Inspires</router-link>
     </div>
         <div class="options">
-            <a class="button is-link" style="font-weight: 600;" href="createpost.html">
+            <router-link class="button is-link" style="font-weight: 600;" to="/createpost">
                 Share Highlight
-              </a>
-            <a class="button is-warning" style="font-weight: 600;" href="editprofile.html">
+              </router-link>
+            <router-link class="button is-warning" style="font-weight: 600;" to="/editprofile">
                 Edit Profile
-            </a>
+            </router-link>
         </div>
     </div>
   </div>
