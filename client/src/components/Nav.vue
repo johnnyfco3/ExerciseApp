@@ -2,7 +2,7 @@
   <nav class="navbar is-warning">
     <div class="navbar-brand">
       <img src="https://i.pinimg.com/736x/44/9a/f1/449af1b309336d6b61c200db5410d4ea.jpg" style="height:75px; border-radius: 50%; border: 5px solid #FEDE00;">
-      <router-link to="/home"><span>Gainz</span></router-link>
+      <router-link class="navbar-item" to="/home"><span>Gainz</span></router-link>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': navBarIsActive }" @click="navBarIsActive = !navBarIsActive">
         <span aria-hidden="true"></span>

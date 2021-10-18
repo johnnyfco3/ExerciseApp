@@ -1,6 +1,6 @@
 <template>
     <div class="buttons">
-        <a class="button is-info" href="login.html">
+        <a class="button is-info" href="/">
             Log out
         </a>
     </div>
