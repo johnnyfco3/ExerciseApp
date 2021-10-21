@@ -9,7 +9,9 @@
       <li><router-link to="/planner">Workout Planner</router-link></li>
     </ul>
   </div>
-  <Post />
+  <div class="photo-content" v-for="p in posts" :key="p.src">
+    <post :post="p" />
+  </div>
   </div>
 </template>
 
@@ -17,9 +19,15 @@
 import Nav from '../components/Nav.vue'
 import Post from '../components/Post.vue'
 import UserInfo from '../components/UserInfo.vue'
-export default {
-  components: { Nav, UserInfo, Post },
+import session from '../services/session'
+import { GetWall } from '../services/posts'
 
+export default {
+  components: { Nav, UserInfo, Post
+   },
+  data: ()=> ({
+    posts: GetWall(session.user.handle)
+  })
 }
 </script>
 

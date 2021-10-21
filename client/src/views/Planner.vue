@@ -37,7 +37,7 @@
                         <div class="column">
                             <div class="control">
                                 <label class="label">Notes</label>
-                                <textarea class="textarea" placeholder="Workout Routine" name="mon-note"></textarea>
+                                <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                       <div class="column">
                           <div class="control">
                               <label class="label">Notes</label>
-                              <textarea class="textarea" placeholder="Workout Routine" name="mon-note"></textarea>
+                              <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
                           </div>
                       </div>
                   </div>
@@ -87,7 +87,7 @@
                     <div class="column">
                         <div class="control">
                             <label class="label">Notes</label>
-                            <textarea class="textarea" placeholder="Workout Routine" name="mon-note"></textarea>
+                            <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                   <div class="column">
                       <div class="control">
                           <label class="label">Notes</label>
-                          <textarea class="textarea" placeholder="Workout Routine" name="mon-note"></textarea>
+                          <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
                       </div>
                   </div>
               </div>
@@ -137,7 +137,7 @@
                 <div class="column">
                     <div class="control">
                         <label class="label">Notes</label>
-                        <textarea class="textarea" placeholder="Workout Routine" name="mon-note"></textarea>
+                        <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
               <div class="column">
                   <div class="control">
                       <label class="label">Notes</label>
-                      <textarea class="textarea" placeholder="Workout Routine" name="mon-note"></textarea>
+                      <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
                   </div>
               </div>
           </div>
@@ -187,7 +187,7 @@
             <div class="column">
                 <div class="control">
                     <label class="label">Notes</label>
-                    <textarea class="textarea" placeholder="Workout Routine" name="mon-note"></textarea>
+                    <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
                 </div>
             </div>
         </div>
