@@ -1,14 +1,19 @@
-const http = require('http');
+const express = require('express');
+const path = require('path')
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const usersController = require('./controllers/users')
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
+const app = express()
+const port = 3000
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app
+  .use('/', express.static(path.join(__dirname, '../docs')))
+  .use('/users', usersController)
+
+app
+  .get('*', (req, res)=>
+  res.sendFile(path.join(__dirname, '../docs/index.html')))
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
