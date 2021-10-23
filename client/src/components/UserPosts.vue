@@ -1,10 +1,10 @@
 <template>
  <div class="columns">
-        <div class="column is-full">
+        <div class="column is-two-thirds">
       <div class="card">
   <div class="card-image">
     <p class="subtitle is-5">{{post.user.firstName}} {{post.user.lastName}} </p>
-    <figure class="image is-3by2 is-flex is-justify-content-center">
+    <figure class="image is-5by3">
       <img :src="post.src" :alt="post.alt">
     </figure>
   </div>

@@ -8,5 +8,5 @@ import router from './router'
 
 createApp(App)
     .use(router)
-    .mount('#app')
     .use(Notification)
+    .mount('#app')

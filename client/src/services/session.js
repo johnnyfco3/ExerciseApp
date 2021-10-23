@@ -3,7 +3,7 @@ import { Login } from './users'
 
 const session = {
     user: null,
-    messages: [],
+    messages: [{text: 'Make sure you are reaching your goals everyday', type: 'success'}],
     toRoute: '/home',
     Login(handle,password){
         const response = Login(handle,password);

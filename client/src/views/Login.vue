@@ -15,7 +15,7 @@
           <div class="field">
             <label class="label">Username</label>
             <div class="control">
-              <input class="input is-info" type="text" required v-model="username">
+              <input class="input is-info" type="text" placeholder="@" required v-model="username">
             </div>
           </div>
           

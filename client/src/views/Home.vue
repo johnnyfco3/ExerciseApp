@@ -1,78 +1,80 @@
 <template>
-<div class="nav">
+<div class="home">
   <Nav />
   <!--Main Content-->
-  <div class="top-content">
-    <article class="message" style="width: 20%; text-align: center;">
-  <div class="message-header">
-    <p>Monday</p>
-    <button class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body" style="font-family:cursive; font-size: 25px; color:darkcyan;">
-    Chest/Triceps Day
-  </div>
-</article>
-    <article class="message" style="width: 20%; text-align: center;">
-  <div class="message-header">
-    <p>Tuesday</p>
-    <button class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body" style="font-family:cursive; font-size: 25px; color:darkcyan;">
-    Back/Biceps Day
-  </div>
-</article>
-    <article class="message" style="width: 20%; text-align: center;">
-  <div class="message-header">
-    <p>Wednesday</p>
-    <button class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body" style="font-family:cursive; font-size: 25px; color:darkcyan;">
-    Legs Day
-  </div>
-</article>
+  <div class="messages">
+        <div class="notification is-light" :class="`is-${message.type}`" v-for="(message, i) in messages" :key="i">
+            <button class="delete" @click.prevent="done(i)"></button>
+            {{message.text}}
+        </div>
+    </div>
 
-    <article class="message" style="width: 20%; text-align: center;">
-  <div class="message-header">
-    <p>Thursday</p>
-    <button class="delete" aria-label="delete"></button>
+      <div class="bottom-content">
+        <div class="goals" style="width:30%;">
+             <nav class="panel">
+  <p class="panel-heading" style="text-align:center; color:darkcyan;">
+    Community
+  </p>
+  <div class="panel-block">
+    <p class="control">
+      <input class="input" type="text" placeholder="Search">
+    </p>
   </div>
-  <div class="message-body" style="font-family:cursive; font-size: 25px; color:darkcyan;">
-    Chest/Triceps Day
-  </div>
-</article>
-    <article class="message" style="width: 20%; text-align: center;">
-  <div class="message-header">
-    <p>Friday</p>
-    <button class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body" style="font-family:cursive; font-size: 25px; color:darkcyan;">
-    Back/Biceps Day
-  </div>
-</article>
-    <article class="message" style="width: 20%; text-align: center;">
-  <div class="message-header">
-    <p>Saturday</p>
-    <button class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body" style="font-family:cursive; font-size: 25px; color:darkcyan;">
-    Rest Day
-  </div>
-</article>
-    <article class="message" style="width: 20%; text-align: center;">
-  <div class="message-header">
-    <p>Sunday</p>
-    <button class="delete" aria-label="delete"></button>
-  </div>
-  <div class="message-body" style="font-family:cursive; font-size: 25px; color:darkcyan;">
-    Rest Day
-  </div>
-</article>
-  </div>
-      <div class="bottom-content" v-for="p in posts" :key="p.src">
+  <p class="panel-tabs">
+    <a class="is-active" style="color:black;">Motivators</a>
+    <a style="color:black;">Inspires</a>
+  </p>
+  <a class="panel-block">
+    name
+  </a>
+  <a class="panel-block">
+    name
+  </a>
+  <a class="panel-block">
+    name
+  </a>
+  <a class="panel-block">
+    name
+  </a>
+  <a class="panel-block">
+    name
+  </a>
+  <a class="panel-block">
+    name
+  </a>
+</nav>
+<nav class="panel">
+  <p class="panel-heading" style="text-align:center; color:darkcyan;">
+    Goals
+  </p>
+  <a class="panel-block">
+    Monday
+  </a>
+  <a class="panel-block">
+    Tuesday
+  </a>
+  <a class="panel-block">
+    Wednesday
+  </a>
+  <a class="panel-block">
+    Thursday
+  </a>
+  <a class="panel-block">
+    Friday
+  </a>
+  <a class="panel-block">
+    Saturday
+  </a>
+  <a class="panel-block">
+    Sunday
+  </a>
+</nav>
+          </div>
+          <div class="posts" v-for="p in posts" :key="p.src">
         <post :post="p" />
-      </div>
+        </div>
 </div>
-
+</div>
 </template>
 
 <script>
@@ -80,29 +82,38 @@ import Nav from '../components/Nav.vue';
 import Post from '../components/Post.vue';
 import session from '../services/session'
 import { GetWall } from '../services/posts'
-
+  
 export default {
   components: { 
     Nav,
     Post
   },
   data: ()=> ({
-    posts: GetWall(session.user.handle)
-  })
+    posts: GetWall(session.user.handle),
+    messages: session.messages
+  }),
+  methods: {
+        done(i){
+            this.messages.splice(i, 1);
+        }
+    }
 }
 
 </script>
 
 <style>
-    .bottom-content{
-        margin-top: 50px;
-    }
     .tabs a{
         font-size: 18px;
     }
-    .top-content .message{
-      display: inline-block; /* the default for span */
-      margin-right: 72px;
-  
+    .bottom-content{
+      width:100%;
+      height: 100%;
+      }
+    .goals{
+      float: right;
+      margin-right: 20px;
+    }
+    .posts {
+      float: left;
     }
 </style>
