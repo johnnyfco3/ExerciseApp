@@ -10,66 +10,6 @@
     </div>
 
       <div class="bottom-content">
-        <div class="goals" style="width:30%;">
-             <nav class="panel">
-  <p class="panel-heading" style="text-align:center; color:darkcyan;">
-    Community
-  </p>
-  <div class="panel-block">
-    <p class="control">
-      <input class="input" type="text" placeholder="Search">
-    </p>
-  </div>
-  <p class="panel-tabs">
-    <a class="is-active" style="color:black;">Motivators</a>
-    <a style="color:black;">Inspires</a>
-  </p>
-  <a class="panel-block">
-    name
-  </a>
-  <a class="panel-block">
-    name
-  </a>
-  <a class="panel-block">
-    name
-  </a>
-  <a class="panel-block">
-    name
-  </a>
-  <a class="panel-block">
-    name
-  </a>
-  <a class="panel-block">
-    name
-  </a>
-</nav>
-<nav class="panel">
-  <p class="panel-heading" style="text-align:center; color:darkcyan;">
-    Goals
-  </p>
-  <a class="panel-block">
-    Monday
-  </a>
-  <a class="panel-block">
-    Tuesday
-  </a>
-  <a class="panel-block">
-    Wednesday
-  </a>
-  <a class="panel-block">
-    Thursday
-  </a>
-  <a class="panel-block">
-    Friday
-  </a>
-  <a class="panel-block">
-    Saturday
-  </a>
-  <a class="panel-block">
-    Sunday
-  </a>
-</nav>
-          </div>
           <div class="posts" v-for="p in posts" :key="p.src">
         <post :post="p" />
         </div>
@@ -104,16 +44,5 @@ export default {
 <style>
     .tabs a{
         font-size: 18px;
-    }
-    .bottom-content{
-      width:100%;
-      height: 100%;
-      }
-    .goals{
-      float: right;
-      margin-right: 20px;
-    }
-    .posts {
-      float: left;
     }
 </style>

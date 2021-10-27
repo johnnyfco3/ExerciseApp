@@ -6,10 +6,10 @@
          <!--Main Content-->
           <div class="columns">
         <div class="column is-two-thirds">
-            <div class="card">
+            <div class="card card7">
                 <div class="card-content">
                     <div class="content">
-                      <form action="/profile" method="post">
+                      <form action="/profile">
                         <div class="field">
                             <label class="label">Profile Picture</label>
                             <div class="file has-name">
@@ -33,28 +33,28 @@
                         <div class="field">
                             <label class="label">Username</label>
                             <div class="control">
-                              <input class="input is-info" type="text" name="username">
+                              <input class="input is-info" type="text" name="username" :placeholder="users.handle">
                             </div>
                           </div>
           
                         <div class="field">
                           <label class="label">Age</label>
                           <div class="control">
-                            <input class="input is-info" type="text" name="age">
+                            <input class="input is-info" type="text" name="age" :placeholder="users.age">
                           </div>
                         </div>
                         
                         <div class="field">
                           <label class="label">Weight</label>
                           <div class="control">
-                            <input class="input is-info" type="number" name="weight">
+                            <input class="input is-info" type="number" name="weight" :placeholder="users.weight">
                           </div>
                        </div>
 
                        <div class="field">
                         <label class="label">Email</label>
                         <div class="control">
-                          <input class="input is-info" type="email" name="email">
+                          <input class="input is-info" type="email" name="email" :placeholder="users.emails">
                         </div>
                      </div>
                         
@@ -75,10 +75,16 @@
 
 <script>
 import Nav from '../components/Nav.vue'
+import { GetByHandle } from '../services/users'
+import session from '../services/session'
+
 export default {
   components: { 
       Nav
     },
+    data: ()=> ({
+    users: GetByHandle(session.user.handle)
+  })
 
 }
 </script>
@@ -92,5 +98,19 @@ export default {
         font-family: cursive;
         font-size: 50px;
         color: darkcyan;
+    }
+    .card7{
+        margin-left: 400px;
+        margin-top: 20px;
+        width: 70%;
+    }
+    .title{
+        margin-top: 75px;
+        text-align: center;
+        font-family: cursive;
+    }
+    .title span{
+      color: darkcyan;
+      font-size: 60px;
     }
 </style>

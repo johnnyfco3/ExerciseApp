@@ -45,8 +45,7 @@ const routes = [
   {
     path: '/info',
     name: 'Info',
-    component: Info,
-    meta: { requiresLogin: true }
+    component: Info
   },
   {
     path: '/planner',

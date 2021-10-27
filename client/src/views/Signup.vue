@@ -1,18 +1,18 @@
 <template>
 <div class="page">
-  <h1 class="title is-1"><span>Gainz</span></h1>
+  <h1 class="title1 is-1"><span>Gainz</span></h1>
       <!--Main Content-->
       <div class="columns">
         <div class="column is-two-thirds">
-            <div class="card">
+            <div class="card card2">
                 <div class="card-content">
-                    <div class="media">
+                    <div class="media media2">
                         <div class="media-content">
-                            <p class="title is-12">Sign up</p>
+                            <p class="title">Sign up</p>
                         </div>
                     </div>
                     <div class="content">
-                      <form action="/info" method="post">
+                      <form action="/info">
                         <div class="field">
                             <label class="label">Full Name</label>
                             <div class="control">
@@ -78,21 +78,22 @@ export default {
 </script>
 
 <style>
-.card{
-        margin-left: 390px;
+.card2{
+        margin-left: 400px;
         margin-top: 20px;
         width: 70%;
     }
-    .title{
+    .title1{
         margin-top: 75px;
         text-align: center;
         font-family: cursive;
     }
-    .title span{
+    .title1 span{
       color: darkcyan;
       font-size: 60px;
     }
-    .media p{
+    .card2 .media2 .media-content{
+        text-align: center;
         font-family: 'Times New Roman', Times, serif;
         font-size: 35px;
     }

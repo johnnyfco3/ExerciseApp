@@ -6,10 +6,10 @@
          <!--Main Content-->
           <div class="columns">
         <div class="column is-two-thirds">
-            <div class="card">
+            <div class="card card6">
                 <div class="card-content">
                     <div class="content">
-                      <form action="userprofile.html" method="post">
+                      <form action="/profile">
                         <div class="field">
                             <label class="label">Highlight</label>
                             <div class="file has-name">
@@ -85,5 +85,19 @@ export default {
         font-family: cursive;
         font-size: 50px;
         color: darkcyan;
+    }
+    .card6{
+        margin-left: 400px;
+        margin-top: 20px;
+        width: 70%;
+    }
+    .title{
+        margin-top: 75px;
+        text-align: center;
+        font-family: cursive;
+    }
+    .title span{
+      color: darkcyan;
+      font-size: 60px;
     }
 </style>

@@ -3,11 +3,11 @@
   <h1 class="title is-1"><span>Gainz</span></h1>
   <div class="columns">
         <div class="column is-two-thirds">
-    <div class="card">
+    <div class="card card1">
     <div class="card-content">
-      <div class="media">
+      <div class="media media1">
         <div class="media-content">
-          <p class="title is-12">Log In</p>
+          <p class="title">Log In</p>
         </div>
       </div>
       <div class="content">
@@ -69,10 +69,10 @@ export default {
 </script>
 
 <style>
-    .card{
-        margin-left: 420px;
+    .card1{
+        margin-left: 400px;
         margin-top: 20px;
-        width: 60%;
+        width: 70%;
     }
     .title{
         margin-top: 75px;
@@ -83,8 +83,9 @@ export default {
       color: darkcyan;
       font-size: 60px;
     }
-    .media p{
+    .card1 .media1 p{
         font-family: 'Times New Roman', Times, serif;
         font-size: 35px;
     }
+    
 </style>

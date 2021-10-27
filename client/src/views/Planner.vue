@@ -16,7 +16,7 @@
       <div class="card">
         <div class="card-content">
             <div class="content">
-              <form action="" method="post">
+              <form action="/planner">
                 <div class="field">
                     <h1 class="subtitle is-8">Monday</h1>
                     <div class="columns is-multiline">

@@ -4,7 +4,7 @@
       <div class="container">
         <h1 class="title is-8">Progress Goals</h1>
          <!--Main Content-->
-            <div class="card">
+            <div class="card card5">
                 <div class="card-content">
                     <div class="content">
                       <form action="track.html" method="post">

@@ -1,15 +1,14 @@
 <template>
- <div class="columns">
-        <div class="column is-two-thirds">
-      <div class="card">
+<div class="columns">
+  <div class="column is-one-third is-offset-one-third">
+      <div class="card card4">
   <div class="card-image">
-    <p class="subtitle is-5">{{post.user.firstName}} {{post.user.lastName}} </p>
-    <figure class="image is-5by3">
+    <figure class="image is-4by3">
       <img :src="post.src" :alt="post.alt">
     </figure>
   </div>
   <div class="card-content">
-    <div class="media">
+    <div class="media media4">
       <div class="media-content">
         <p class="subtitle is-4">{{post.user.handle}}</p>
         <p class="subtitle is-6"><br>{{post.category}}<br></p>
@@ -17,7 +16,7 @@
     </div>
 
     <div class="content">
-      <p class="subtitle is-6">{{post.user.handle}}</p> {{post.caption}}
+     {{post.caption}}
     </div>
   </div>
   <footer class="card-footer">
@@ -25,9 +24,9 @@
     <a href="#" class="card-footer-item">Comment</a>
     <a href="#" class="card-footer-item">Share</a>
   </footer>
-</div>    
-</div> 
+</div>  
 </div>
+</div>  
 </template>
 
 <script>
@@ -39,4 +38,7 @@ export default {
 </script>
 
 <style>
+.card4 .media4 p{
+  font-family: 'Times New Roman', Times, serif;
+}
 </style>

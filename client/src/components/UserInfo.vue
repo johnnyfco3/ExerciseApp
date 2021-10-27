@@ -10,13 +10,13 @@
     </div>
     <div class="column is-one-third">
       <div class="features">
-        <h1 class="subtitle is-3"><span1>@username</span1></h1>
+        <h1 class="subtitle is-3"><span1>{{users.handle}}</span1></h1>
         <div class="bio">
-          <h1 class="subtitle">Age: N/A</h1>
-          <h1 class="subtitle">Height: N/A</h1>
-          <h1 class="subtitle">Weight: N/A</h1>
+          <h1 class="subtitle">Age: {{users.age}}</h1>
+          <h1 class="subtitle">Height: {{users.height}}</h1>
+          <h1 class="subtitle">Weight: {{users.weight}}</h1>
       </div>
-        <p><span>0</span> Highlights</p>
+        <p><span>2</span> Highlights</p>
         <router-link to="/community"><span>0</span> Motivators</router-link>
         <router-link to="/community"><span>0</span> Inspires</router-link>
     </div>
@@ -34,8 +34,14 @@
 </template>
 
 <script>
-export default {
 
+import { GetByHandle } from '../services/users'
+import session from '../services/session'
+
+export default {
+  data: ()=> ({
+    users: GetByHandle(session.user.handle)
+  })
 }
 </script>
 

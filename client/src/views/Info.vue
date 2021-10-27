@@ -1,14 +1,14 @@
 <template>
 <div class="page">
-  <h1 class="title is-1"><span>Gainz</span></h1>
+  <h1 class="title2 is-1"><span>Gainz</span></h1>
       <!--Main Content-->
       <div class="columns">
         <div class="column is-two-thirds">
-            <div class="card">
+            <div class="card card3">
                 <div class="card-content">
-                    <div class="media">
+                    <div class="media media3">
                         <div class="media-content">
-                            <p class="title is-12">Further Questions</p>
+                            <p class="title">Further Questions</p>
                         </div>
                     </div>
                     <div class="content">
@@ -55,21 +55,21 @@ export default {
 </script>
 
 <style>
-.card{
+.card3{
         margin-left: 400px;
         margin-top: 20px;
         width: 70%;
     }
-    .title{
+    .title2{
         margin-top: 75px;
         text-align: center;
         font-family: cursive;
     }
-    .title span{
+    .title2 span{
       color: darkcyan;
       font-size: 60px;
     }
-    .media p{
+    .card3 .media3 p{
         font-family: 'Times New Roman', Times, serif;
         font-size: 35px;
     }

@@ -17,7 +17,6 @@
 
 <script>
 import Nav from '../components/Nav.vue'
-
 import UserInfo from '../components/UserInfo.vue'
 import session from '../services/session'
 import { GetWall } from '../services/posts'
