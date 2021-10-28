@@ -19,6 +19,15 @@ const list = [
         category: "Chest/Triceps",
         isPublic: true,
     },
+    { 
+        src: "https://post.healthline.com/wp-content/uploads/2019/10/Female_Male_Rope_Workout_1200x628-facebook.jpg",
+        alt: "Placeholder image",
+        caption: "kgjjfhfkfhfhgfhghggh",
+        time: Date(),
+        user_handle: "vp",
+        category: "Legs",
+        isPublic: true,
+    },
 ];
 
 const listWithOwner = ()=> list.map(x => ({ 
@@ -39,6 +48,7 @@ export function GetFeed(handle) { return listWithOwner()
 
 
 export function Get(post_id) { return list[post_id]; }
+export function GetAllPosts() { return list; }
 export function Add(post) {
     if(!post.user_handle){
         throw {code: 422, msg: "Post must have an Owner"}

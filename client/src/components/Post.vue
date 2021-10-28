@@ -3,7 +3,6 @@
         <div class="column is-one-third is-offset-one-third">
       <div class="card card5">
   <div class="card-image">
-    <p class="subtitle is-5">{{post.user.firstName}} {{post.user.lastName}} </p>
     <figure class="image is-4by3">
       <img :src="post.src" :alt="post.alt">
     </figure>
@@ -11,7 +10,7 @@
   <div class="card-content">
     <div class="media media5">
       <div class="media-content">
-        <p class="subtitle is-4">{{post.user.handle}}</p>
+        <p class="subtitle is-4">{{post.user_handle}}</p>
         <p class="subtitle is-6"><br>{{post.category}}<br></p>
       </div>
     </div>

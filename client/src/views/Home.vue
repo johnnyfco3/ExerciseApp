@@ -21,7 +21,7 @@
 import Nav from '../components/Nav.vue';
 import Post from '../components/Post.vue';
 import session from '../services/session'
-import { GetWall } from '../services/posts'
+import { GetAllPosts } from '../services/posts'
   
 export default {
   components: { 
@@ -29,7 +29,7 @@ export default {
     Post
   },
   data: ()=> ({
-    posts: GetWall(session.user.handle),
+    posts: GetAllPosts(),
     messages: session.messages
   }),
   methods: {
