@@ -23,13 +23,15 @@
                         <div class="column is-one-fifth">
                             <div class="control">
                                 <label class="label">Choose Workout</label>
-                                <div class="select" name="category" required>
+                                <div class="select" name="category">
                                   <select>
+                                    <option>{{goals.categoryM}}</option>
                                     <option>Chest/Triceps</option>
                                     <option>Back/Biceps</option>
                                     <option>Legs</option>
                                     <option>Abs</option>
                                     <option>Cardio</option>
+                                    <option>Rest</option>
                                   </select>
                                 </div>
                             </div>
@@ -37,7 +39,7 @@
                         <div class="column">
                             <div class="control">
                                 <label class="label">Notes</label>
-                                <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
+                                <div class="textarea" name="mon-note" placeholder="Workout Routine/Goals">{{goals.mon}}</div>
                             </div>
                         </div>
                     </div>
@@ -48,13 +50,15 @@
                       <div class="column is-one-fifth">
                           <div class="control">
                               <label class="label">Choose Workout</label>
-                              <div class="select" name="category" required>
+                              <div class="select" name="category">
                                 <select>
+                                  <option>{{goals.categoryT}}</option>
                                   <option>Chest/Triceps</option>
                                   <option>Back/Biceps</option>
                                   <option>Legs</option>
                                   <option>Abs</option>
                                   <option>Cardio</option>
+                                  <option>Rest</option>
                                 </select>
                               </div>
                           </div>
@@ -62,7 +66,7 @@
                       <div class="column">
                           <div class="control">
                               <label class="label">Notes</label>
-                              <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
+                              <div class="textarea" name="mon-note" placeholder="Workout Routine/Goals">{{goals.tues}}</div>
                           </div>
                       </div>
                   </div>
@@ -73,13 +77,15 @@
                     <div class="column is-one-fifth">
                         <div class="control">
                             <label class="label">Choose Workout</label>
-                            <div class="select" name="category" required>
+                            <div class="select" name="category">
                               <select>
+                                <option>{{goals.categoryW}}</option>
                                 <option>Chest/Triceps</option>
                                 <option>Back/Biceps</option>
                                 <option>Legs</option>
                                 <option>Abs</option>
                                 <option>Cardio</option>
+                                <option>Rest</option>
                               </select>
                             </div>
                         </div>
@@ -87,7 +93,7 @@
                     <div class="column">
                         <div class="control">
                             <label class="label">Notes</label>
-                            <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
+                            <div class="textarea" name="mon-note" placeholder="Workout Routine/Goals">{{goals.weds}}</div>
                         </div>
                     </div>
                 </div>
@@ -98,13 +104,15 @@
                   <div class="column is-one-fifth">
                       <div class="control">
                           <label class="label">Choose Workout</label>
-                          <div class="select" name="category" required>
+                          <div class="select" name="category">
                             <select>
+                              <option>{{goals.categoryTH}}</option>
                               <option>Chest/Triceps</option>
                               <option>Back/Biceps</option>
                               <option>Legs</option>
                               <option>Abs</option>
                               <option>Cardio</option>
+                              <option>Rest</option>
                             </select>
                           </div>
                       </div>
@@ -112,7 +120,7 @@
                   <div class="column">
                       <div class="control">
                           <label class="label">Notes</label>
-                          <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
+                          <div class="textarea" name="mon-note" placeholder="Workout Routine/Goals">{{goals.thurs}}</div>
                       </div>
                   </div>
               </div>
@@ -123,13 +131,15 @@
                 <div class="column is-one-fifth">
                     <div class="control">
                         <label class="label">Choose Workout</label>
-                        <div class="select" name="category" required>
+                        <div class="select" name="category">
                           <select>
+                            <option>{{goals.categoryF}}</option>
                             <option>Chest/Triceps</option>
                             <option>Back/Biceps</option>
                             <option>Legs</option>
                             <option>Abs</option>
                             <option>Cardio</option>
+                            <option>Rest</option>
                           </select>
                         </div>
                     </div>
@@ -137,7 +147,7 @@
                 <div class="column">
                     <div class="control">
                         <label class="label">Notes</label>
-                        <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
+                        <div class="textarea" name="mon-note" placeholder="Workout Routine/Goals">{{goals.fri}}</div>
                     </div>
                 </div>
             </div>
@@ -148,13 +158,15 @@
               <div class="column is-one-fifth">
                   <div class="control">
                       <label class="label">Choose Workout</label>
-                      <div class="select" name="category" required>
+                      <div class="select" name="category">
                         <select>
+                          <option>{{goals.categorySA}}</option>
                           <option>Chest/Triceps</option>
                           <option>Back/Biceps</option>
                           <option>Legs</option>
                           <option>Abs</option>
                           <option>Cardio</option>
+                          <option>Rest</option>
                         </select>
                       </div>
                   </div>
@@ -162,7 +174,7 @@
               <div class="column">
                   <div class="control">
                       <label class="label">Notes</label>
-                      <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
+                      <div class="textarea" name="mon-note" placeholder="Workout Routine/Goals">{{goals.sat}}</div>
                   </div>
               </div>
           </div>
@@ -173,13 +185,15 @@
             <div class="column is-one-fifth">
                 <div class="control">
                     <label class="label">Choose Workout</label>
-                    <div class="select" name="category" required>
+                    <div class="select" name="category">
                       <select>
+                        <option>{{goals.categoryS}}</option>
                         <option>Chest/Triceps</option>
                         <option>Back/Biceps</option>
                         <option>Legs</option>
                         <option>Abs</option>
                         <option>Cardio</option>
+                        <option>Rest</option>
                       </select>
                     </div>
                 </div>
@@ -187,7 +201,7 @@
             <div class="column">
                 <div class="control">
                     <label class="label">Notes</label>
-                    <textarea class="textarea" placeholder="Workout Routine/Goals" name="mon-note"></textarea>
+                    <div class="textarea" name="mon-note" placeholder="Workout Routine/Goals">{{goals.sun}}</div>
                 </div>
             </div>
         </div>
@@ -210,12 +224,17 @@
 <script>
 import Nav from '../components/Nav.vue'
 import UserInfo from '../components/UserInfo.vue'
+import { GetGoalWall } from '../services/goals'
+import session from '../services/session'
 
 export default {
   components: { 
       Nav,
     UserInfo
     },
+    data: ()=> ({
+    goals: GetGoalWall(session.user.handle)
+  })
 }
 </script>
 

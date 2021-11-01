@@ -4,7 +4,7 @@
       <div class="column is-two-fifths">
         <div class="user-image">
             <figure class="image">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                <img class="is-rounded" :src="users.pic" >
             </figure>
         </div>
     </div>

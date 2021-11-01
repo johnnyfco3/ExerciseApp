@@ -8,14 +8,13 @@
     <table class="table is-fullwidth is-striped">
         <thead>
           <tr>
-            <th>Motivators (4)</th>
-            <th>Inspires (4)</th>
+            <th>Motivators (Count)</th>
+            <th>Inspires (Count)</th>
           </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Name</td>
-                <td>Name</td>
+                <td>{{users.handle}}</td>
           </tr>
         </tbody>
       </table>
@@ -25,11 +24,16 @@
 
 <script>
 import Nav from '../components/Nav.vue'
+import { GetByHandle } from '../services/users'
+import session from '../services/session'
 
 export default {
   components: { 
       Nav
-    }
+    },
+    data: ()=> ({
+    users: GetByHandle(session.user.handle).following
+  })
 
 }
 </script>
