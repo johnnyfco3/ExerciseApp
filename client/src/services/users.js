@@ -67,6 +67,15 @@ export function Update(user_id, user) {
     if(user.pic){
         oldObj.pic = user.pic;
     }
+    if(user.age){
+        oldObj.age = user.age;
+    }
+    if(user.height){
+        oldObj.height = user.height;
+    }
+    if(user.weight){
+        oldObj.weight = user.weight;
+    }
     //list[user_id] = newObj ;
     return { ...oldObj, password: undefined };
 }

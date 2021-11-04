@@ -10,5 +10,25 @@ app
     .get("/:user_id", (req, res, next)=>{
         res.send(model.Get(req.params.user_id));
     })
+    .post("/login", (req, res, next)=>{
+        model.Login(req.body.handle, req.body.password)
+            .then(user=>{
+                res.send(user);
+        })
+        .catch(next)
+    })
+    .post("/register", (req, res, next)=>{
+        model.Add(req.body)
+            .then(user=>{
+                res.status(201).send(user)
+        })
+        .catch(next);
+    })
+    .post("/update", (req, res, next)=>{
+        res.status(201).send(model.Update(req.params.user_id, req.body));
+    })
+    .get("/delete", (req, res, next)=>{
+        res.status(201).send(model.Delete(req.params.user_id));
+    })
 
 module.exports = app;

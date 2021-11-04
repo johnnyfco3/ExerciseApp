@@ -44,6 +44,7 @@ module.exports.Get = function Get(goal_id) { return list[goal_id]; }
 module.exports.GetGoalWall = function GetGoalWall(handle) {
     return list.find(goal=> goal.user_handle == handle);
 }
+
 module.exports.Add = function Add(goal) {
     if(!goal.mon){
         throw { code: 422, msg: "Monday note is required" }
