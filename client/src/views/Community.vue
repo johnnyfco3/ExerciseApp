@@ -14,7 +14,8 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{users.handle}}</td>
+                <td>{{following.handle}}</td>
+                <td>{{followers.handle}}</td>
           </tr>
         </tbody>
       </table>
@@ -32,7 +33,8 @@ export default {
       Nav
     },
     data: ()=> ({
-    users: GetByHandle(session.user.handle).following
+      following: GetByHandle(session.user.handle).following,
+      followers: GetByHandle(session.user.handle).followers
   })
 
 }

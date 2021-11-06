@@ -21,7 +21,7 @@
 import Nav from '../components/Nav.vue';
 import Post from '../components/Post.vue';
 import session from '../services/session'
-import { GetAllPosts } from '../services/posts'
+import { GetFeed } from '../services/posts'
   
 export default {
   components: { 
@@ -29,7 +29,7 @@ export default {
     Post
   },
   data: ()=> ({
-    posts: GetAllPosts(),
+    posts: GetFeed(session.user.handle),
     messages: session.messages
   }),
   methods: {

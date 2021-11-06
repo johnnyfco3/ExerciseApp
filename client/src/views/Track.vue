@@ -50,9 +50,9 @@
                 </tbody>
               </table>
           <div class="begin">
-            <a class="button is-primary" style="font-weight: 600;" href="trackdtls.html">
+            <router-link class="button is-primary" style="font-weight: 600;" to="/trackdts">
                 Edit
-              </a>
+            </router-link>
           </div>
           </div>
           <div class="cardio">

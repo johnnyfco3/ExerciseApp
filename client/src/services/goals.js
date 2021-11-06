@@ -15,7 +15,7 @@ const list = [
         categorySA: "Rest",
         categoryS: "Rest",
         user_handle: "johnnyfco",
-        isPublic: true,
+        isPublic: false,
     },
     { 
         mon: "",
@@ -33,7 +33,7 @@ const list = [
         categorySA: "",
         categoryS: "",
         user_handle: "vp",
-        isPublic: true,
+        isPublic: false,
     },
 ];
 
@@ -45,48 +45,6 @@ export function GetGoalWall(handle) {
     return list.find(goal=> goal.user_handle == handle);
 }
 export function Add(goal) {
-    if(!goal.mon){
-        throw { code: 422, msg: "Monday note is required" }
-    }
-    if(!goal.tues){
-        throw { code: 422, msg: "Tuesday note is required" }
-    }
-    if(!goal.weds){
-        throw { code: 422, msg: "Wednesday note is required" }
-    }
-    if(!goal.thurs){
-        throw { code: 422, msg: "Thursday note is required" }
-    }
-    if(!goal.fri){
-        throw { code: 422, msg: "Friday note is required" }
-    }
-    if(!goal.sat){
-        throw { code: 422, msg: "Saturday note is required" }
-    }
-    if(!goal.sun){
-        throw { code: 422, msg: "Sunday note is required" }
-    }
-    if(!goal.categoryM){
-        throw { code: 422, msg: "Monday category is required" }
-    }
-    if(!goal.categoryT){
-        throw { code: 422, msg: "Tuesday category is required" }
-    }
-    if(!goal.categoryW){
-        throw { code: 422, msg: "Wednesday category is required" }
-    }
-    if(!goal.categoryTH){
-        throw { code: 422, msg: "Thursday category is required" }
-    }
-    if(!goal.categoryF){
-        throw { code: 422, msg: "Friday category is required" }
-    }
-    if(!goal.categorySA){
-        throw { code: 422, msg: "Saturday category is required" }
-    }
-    if(!goal.categoryS){
-        throw { code: 422, msg: "Sunday category is required" }
-    }
      list.push(goal);
      return { ...goal };
 }
@@ -94,49 +52,9 @@ export function Add(goal) {
 
 export function Update(goal_id, goal) {
     const oldObj = list[goal_id];
-    if(goal.mon){
-        oldObj.mon = goal.mon;
-    }
-    if(goal.tues){
-        oldObj.tues = goal.tues;
-    }
-    if(goal.weds){
-        oldObj.weds = goal.weds;
-    }
-    if(goal.thurs){
-        oldObj.thurs = goal.thurs;
-    }
-    if(goal.fri){
-        oldObj.fri = goal.fri;
-    }
-    if(goal.sat){
-        oldObj.sat = goal.sat;
-    }
-    if(goal.sun){
-        oldObj.sun = goal.sun;
-    }
-    if(goal.categoryM){
-        oldObj.categoryM = goal.categoryM;
-    }
-    if(goal.categoryT){
-        oldObj.categoryT = goal.categoryT;
-    }
-    if(goal.categoryW){
-        oldObj.categoryW = goal.categoryW;
-    }
-    if(goal.categoryTH){
-        oldObj.categoryTH = goal.categoryTH;
-    }
-    if(goal.categoryF){
-        oldObj.categoryF = goal.categoryF;
-    }
-    if(goal.categorySA){
-        oldObj.categorySA = goal.categorySA;
-    }
-    if(goal.categoryS){
-        oldObj.categoryS = goal.categoryS;
-    }
-    return { ...oldObj };
+    const newObj = { ...oldObj, ...goal }
+    list[goal_id] = newObj ;
+    return newObj;
 }
 
 export function Delete(goal_id) {

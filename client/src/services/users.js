@@ -17,6 +17,11 @@ const list = [
                 handle: 'vp', isApproved: true 
             }
         ],
+        followers: [ 
+            { 
+                handle: 'vp', isApproved: true 
+            }
+        ],
         get name(){ return this.firstName + ' ' + this.lastName },
     },
     { 
@@ -33,6 +38,11 @@ const list = [
             "vp@wh.com"
         ],
         following: [ 
+            { 
+                handle: 'johnnyfco', isApproved: true 
+            }
+        ],
+        followers: [ 
             { 
                 handle: 'johnnyfco', isApproved: true 
             }
