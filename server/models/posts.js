@@ -1,4 +1,6 @@
 const { GetByHandle } = require("./users");
+const {client} = require('./mongo');
+const collection = client.db(process.env.MONGO_DB).collection('posts');
 
 const list = [
     { 
@@ -36,7 +38,7 @@ const listWithOwner = ()=> list.map(x => ({
 }) );
 
 module.exports.GetAll = function GetAll() {
-    return listWithOwner();
+    return collection.find().toArray();
 }
 
 module.exports.GetWall = function GetWall(handle) {
@@ -47,29 +49,30 @@ module.exports.GetFeed = function GetFeed(handle) { return listWithOwner()
     .filter(post=> GetByHandle(handle).following.some(f=> f.handle == post.user_handle && f.isApproved) );     }
 
 
-module.exports.Get = function Get(post_id) { return list[post_id]; }
+module.exports.Get = post_id => collection.findOne({_id: post_id});
 
-module.exports.Add = function Add(post) {
+module.exports.Add = async function Add(post) {
     if(!post.user_handle){
         throw {code: 422, msg: "Post must have an Owner"}
     }
     post.time = Date();
-    list.push(post);
-    post.id = list.length;
+    const post1 = await collection.insertOne(post);
+    post_id = post1.insertedId;
+
     return { ...post };
 }
 
-module.exports.Update = function Update(post_id, post) {
-    const oldObj = list[post_id];
-    const newObj = { ...oldObj, ...post }
-    list[post_id] = newObj ;
-    return newObj;
+module.exports.Update = async function Update(post_id, post) {
+    const oldObj = collection.findOne({_id: post_id});
+    const newObj = { ...oldObj, ...post };
+    const result = await collection.updateOne({oldObj}, {$set: newObj}, {upsert: true});
+    return result;
 }
 
-module.exports.Delete = function Delete(post_id) {
-    const post = list[post_id];
-    list.splice(post_id, 1);
-    return post;
+module.exports.Delete = async function Delete(post_id) {
+    const post = collection.findOne({_id: post_id});
+    const result = await collection.deleteOne({post});
+    return result;
 } 
 
 module.exports.Search = q => list.filter(x => x.caption.includes(q));

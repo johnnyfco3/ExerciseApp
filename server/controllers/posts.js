@@ -5,25 +5,42 @@ const app = express.Router();
 
 app 
     .get("/", (req, res, next)=>{
-        res.send(model.GetAll());
+        model.GetAll()
+        .then(post=>{
+            res.send(post);
+        })
+        .catch(next);
     })
     .get("/search", (req, res, next)=>{
         res.send(model.Search(req.query.q));
     })
     .get("/:id", (req, res, next)=>{
-        res.send(model.Get(req.params.id));
+        model.Get(req.params.id)
+        .then(post=>{
+            res.send(post);
+        })
+        .catch(next);
     })
     .post("/create", (req, res, next)=>{
-        const newPost = model.Add(req.body)
-        res.status(201).send(newPost);
+        model.Add(req.body)
+        .then(post=>{
+            res.status(201).send(post);
+        })
+        .catch(next);
     })
     .post("/update", (req, res, next)=>{
-        const updatePost = model.Update(req.params.id, req.body)
-        res.status(201).send(updatePost);
+        model.Update(req.params.id, req.body)
+        .then(updatepost=>{
+            res.status(201).send(updatepost);
+        })
+        .catch(next);
     })
     .get("/delete", (req, res, next)=>{
-        const deletePost = model.Delete(req.params.id)
-        res.status(201).send(deletePost);
+        model.Delete(req.params.id)
+        .then(deletepost=>{
+            res.status(201).send(deletepost);
+        })
+        .catch(next);
     })
 
 module.exports = app;

@@ -5,19 +5,39 @@ const app = express.Router();
 
 app 
     .get("/", (req, res, next)=>{
-        res.send(model.GetAll());
+        model.GetAll()
+        .then(goal=>{
+            res.send(goal);
+        })
+        .catch(next);
     })
     .get("/:goal_id", (req, res, next)=>{
-        res.send(model.Get(req.params.goal_id));
+        model.Get(req.params.goal_id)
+        .then(goal=>{
+            res.send(goal);
+        })
+        .catch(next);
     })
     .post("/create", (req, res, next)=>{
-        res.status(201).send(model.Add(req.body));
+        model.Add(req.body)
+        .then(goal=>{
+            res.status(201).send(goal);
+        })
+        .catch(next);
     })
     .post("/update", (req, res, next)=>{
-        res.status(201).send(model.Update(req.params.goal_id, req.body));
+        model.Update(req.params.goal_id, req.body)
+        .then(updategoal=>{
+            res.status(201).send(updategoal);
+        })
+        .catch(next);
     })
     .get("/delete", (req, res, next)=>{
-        res.status(201).send(model.Delete(req.params.goal_id));
+        model.Delete(req.params.goal_id)
+        .then(deletegoal=>{
+            res.status(201).send(deletegoal);
+        })
+        .catch(next);
     })
 
 module.exports = app;

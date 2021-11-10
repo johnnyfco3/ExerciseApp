@@ -1,3 +1,6 @@
+const {client} = require('./mongo');
+const collection = client.db(process.env.MONGO_DB).collection('goals');
+
 const list = [
     { 
         mon: "Incline Bench, Flat Bench, Overhead Press, DB flat bench, DB incline press",
@@ -37,29 +40,31 @@ const list = [
     },
 ];
 
-module.exports.GetAll = function GetAll() { return list; }
+module.exports.GetAll = function GetAll() { return collection.find().toArray(); }
 
-module.exports.Get = function Get(goal_id) { return list[goal_id]; }
+module.exports.Get = goal_id => collection.findOne({_id: goal_id});
 
 module.exports.GetGoalWall = function GetGoalWall(handle) {
     return list.find(goal=> goal.user_handle == handle);
 }
 
-module.exports.Add = function Add(goal) {
-     list.push(goal);
+module.exports.Add = async function Add(goal) {
+     const goal1 = await collection.insertOne(goal);
+     goal_id = goal1.insertedId;
+
      return { ...goal };
 }
 
 
-module.exports.Update = function Update(goal_id, goal) {
-    const oldObj = list[goal_id];
+module.exports.Update = async function Update(goal_id, goal) {
+    const oldObj = collection.findOne({_id: goal_id});
     const newObj = { ...oldObj, ...goal }
-    list[goal_id] = newObj ;
-    return newObj;
+    const result = await collection.updateOne({oldObj}, {$set: newObj}, {upsert: true});
+    return result;
 }
 
 module.exports.Delete = function Delete(goal_id) {
-    const goal = list[goal_id];
-    list.splice(goal_id, 1);
-    return goal;
+    const goal = collection.findOne({_id: goal_id});
+    const result = await collection.deleteOne({goal});
+    return result;
 }

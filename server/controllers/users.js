@@ -5,10 +5,18 @@ const app = express.Router()
 
 app
     .get("/", (req, res, next)=>{
-        res.send(model.GetAll());
+        model.GetAll()
+        ,then(user=>{
+            res.send(user);
+        })
+        .catch(next);
     })
     .get("/:user_id", (req, res, next)=>{
-        res.send(model.Get(req.params.user_id));
+        model.Get(req.params.user_id)
+        ,then(user=>{
+            res.send(user);
+        })
+        .catch(next);
     })
     .post("/login", (req, res, next)=>{
         model.Login(req.body.handle, req.body.password)

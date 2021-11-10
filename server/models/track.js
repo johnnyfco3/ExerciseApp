@@ -1,3 +1,6 @@
+const {client} = require('./mongo');
+const collection = client.db(process.env.MONGO_DB).collection('track');
+
 const list = [
     { 
         cBench: "",
@@ -41,24 +44,26 @@ const list = [
     },
 ];
 
-module.exports.GetAll = function GetAll() { return list; }
+module.exports.GetAll = function GetAll() { return collection.find().toArray(); }
 
-module.exports.Get = function Get(track_id) { return list[track_id]; }
+module.exports.Get = track_id => collection.findOne({_id: track_id});
 
 module.exports.Add = function Add(track) {
-     list.push(track);
-     return { ...track };
+    const track1 = await collection.insertOne(track);
+    track_id = track1.insertedId;
+
+    return { ...track };
 }
 
 module.exports.Update = function Update(track) {
-    const oldObj = list[track_id];
-    const newObj = { ...oldObj, ...track }
-    list[track_id] = newObj ;
-    return newObj;
+    const oldObj = collection.findOne({_id: track_id});
+    const newObj = { ...oldObj, ...track };
+    const result = await collection.updateOne({oldObj}, {$set: newObj}, {upsert: true});
+    return result;
 }
 
 module.exports.Delete = function Delete(track_id) {
-    const track = list[track_id];
-    list.splice(track_id, 1);
-    return track;
+    const track = collection.findOne({_id: track_id});
+    const result = await collection.deleteOne({track});
+    return result;
 }

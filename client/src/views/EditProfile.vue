@@ -64,6 +64,12 @@
                           </div>
                         </div>
                         </form>
+                        <hr>
+                        <div class="field is-grouped">
+                          <div class="control">
+                            <button class="button is-danger">Delete Account</button>
+                          </div>
+                        </div>
                     </div>
         </div>
     </div>
