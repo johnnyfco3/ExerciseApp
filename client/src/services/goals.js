@@ -1,4 +1,6 @@
-const list = [
+import { api } from "./myFetch";
+
+/*const list = [
     { 
         mon: "Incline Bench, Flat Bench, Overhead Press, DB flat bench, DB incline press",
         tues: "Lats Pull down, Seated Rows, Pull ups, Bent over rows, Bicep curls, Shoulder raise",
@@ -36,29 +38,23 @@ const list = [
         isPublic: false,
     },
 ];
+*/
+export function GetAll() { return api('goals'); }
 
-export function GetAll() { return list; }
-
-export function Get(goal_id) { return list[goal_id]; }
+export function Get(goal_id) { return api('goals/' + goal_id); }
 
 export function GetGoalWall(handle) {
-    return list.find(goal=> goal.user_handle == handle);
+    return api('goals/wall/' + handle);
 }
 export function Add(goal) {
-     list.push(goal);
      return { ...goal };
 }
 
 
 export function Update(goal_id, goal) {
-    const oldObj = list[goal_id];
-    const newObj = { ...oldObj, ...goal }
-    list[goal_id] = newObj ;
-    return newObj;
+    return {goal_id, goal};
 }
 
 export function Delete(goal_id) {
-    const goal = list[goal_id];
-    list.splice(goal_id, 1);
-    return goal;
+    return goal_id;
 }

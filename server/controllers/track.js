@@ -25,17 +25,17 @@ app
         })
         .catch(next);
     })
-    .post("/update", (req, res, next)=>{
+    .post("/:id", (req, res, next)=>{
         model.Update(req.params.id, req.body)
-        .then(updatetrack=>{
-            res.status(201).send(updatetrack);
+        .then(updatepost=>{
+            res.status(201).send(updatepost);
         })
         .catch(next);
     })
-    .get("/delete", (req, res, next)=>{
+    .get("/:id", (req, res, next)=>{
         model.Delete(req.params.id)
-        .then(deletetrack=>{
-            res.status(201).send(deletetrack);
+        .then(deletepost=>{
+            res.send({deleted: deletepost});
         })
         .catch(next);
     })

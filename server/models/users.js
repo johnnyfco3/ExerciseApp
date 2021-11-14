@@ -1,6 +1,9 @@
 const bcrypt = require('bcrypt');
+const {ObjectId} = require('bson');
 const {client} = require('./mongo');
+
 const collection = client.db(process.env.MONGO_DB).collection('users');
+module.exports.collection = collection;
 
 const list = [
     { 
@@ -47,9 +50,9 @@ const list = [
 
 module.exports.GetAll = function GetAll() { return collection.find().toArray(); }
 
-module.exports.Get =  user_id => collection.findOne({_id: user_id});
+module.exports.Get =  user_id => collection.findOne({_id: new ObjectId(user_id)});
 
-module.exports.GetByHandle = function GetByHandle(handle) { return ({ ...list.find( x => x.handle == handle ), password: undefined }); } 
+module.exports.GetByHandle = (handle) => collection.findOne({handle}).then(x=> ({ ...x, password: undefined}));
 
 module.exports.Add = async function Add(user) {
     if(!user.firstName){
@@ -67,38 +70,19 @@ module.exports.Add = async function Add(user) {
 }
 
 module.exports.Update = async function Update(user_id, user) {
-    const oldObj = collection.findOne({_id: user_id});
-    const newObj = { ...oldObj, ...post };
-    if(user.firstName){
-        newObj.firstName = user.firstName;
-    }
-    if(user.lastName){
-        newObj.lastName = user.lastName;
-    }
-    if(user.handle){
-        newObj.handle = user.handle;
-    }
-    if(user.pic){
-        newObj.pic = user.pic;
-    }
-    if(user.age){
-        newObj.age = user.age;
-    }
-    if(user.height){
-        newObj.height = user.height;
-    }
-    if(user.weight){
-        newObj.weight = user.weight;
-    }
 
-    const result = await collection.updateOne({oldObj}, {$set: newObj}, {upsert: true});
-    return { result, password: undefined };
+    const result = await collection.findOneAndUpdate(
+        {_id: new ObjectId(user_id)},
+        {$set: user},
+        {returnDocument: 'after'}
+    );
+
+    return { ...result.value, password: undefined };
 }
 
 module.exports.Delete = async function Delete(user_id) {
-    const user = collection.findOne({_id: user_id});
-    const result = await collection.deleteOne({user});
-    return result;
+    const result = await collection.findOneAndDelete({_id: new ObjectId(user_id)});
+    return result.value;
 }
 
 module.exports.Login = async function Login(handle, password){

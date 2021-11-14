@@ -11,6 +11,11 @@ app
         })
         .catch(next);
     })
+    .get("/wall/:handle", (req, res, next) =>{
+        model.GetGoalWall(req.params.handle)
+            .then(x=> res.send(x))
+            .catch(next)
+    })
     .get("/:goal_id", (req, res, next)=>{
         model.Get(req.params.goal_id)
         .then(goal=>{
@@ -25,19 +30,20 @@ app
         })
         .catch(next);
     })
-    .post("/update", (req, res, next)=>{
-        model.Update(req.params.goal_id, req.body)
+    .post("/:id", (req, res, next)=>{
+        model.Update(req.params.id, req.body)
         .then(updategoal=>{
             res.status(201).send(updategoal);
         })
         .catch(next);
     })
-    .get("/delete", (req, res, next)=>{
-        model.Delete(req.params.goal_id)
+    .get("/:id", (req, res, next)=>{
+        model.Delete(req.params.id)
         .then(deletegoal=>{
-            res.status(201).send(deletegoal);
+            res.send({deleted: deletegoal});
         })
         .catch(next);
     })
+    
 
 module.exports = app;

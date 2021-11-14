@@ -1,4 +1,6 @@
-const list = [
+import { api } from "./myFetch";
+
+/*const list = [
     { 
         cBench: "",
         cIBench: "",
@@ -40,28 +42,20 @@ const list = [
         isPublic: false,
     },
 ];
+*/
 
-export function GetAll() { return list; }
+export function GetAll() { return api('track'); }
 
-export function Get(track_id) { return list[track_id]; }
+export function Get(track_id) { return api('track/' + track_id); }
 
-export function GetGoalWall(handle) {
-    return list.find(track=> track.user_handle == handle);
-}
 export function Add(track) {
-     list.push(track);
      return { ...track };
 }
 
-export function Update(track) {
-    const oldObj = list[track_id];
-    const newObj = { ...oldObj, ...track }
-    list[track_id] = newObj ;
-    return newObj;
+export function Update(track_id, track) {
+    return track, track_id;
 }
 
 export function Delete(track_id) {
-    const track = list[track_id];
-    list.splice(track_id, 1);
-    return track;
+    return track_id;
 }

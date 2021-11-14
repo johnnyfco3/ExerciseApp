@@ -18,6 +18,16 @@ app
         })
         .catch(next);
     })
+    .patch("/:user_id", (req, res, next) =>{
+        model.Update(req.params.user_id, req.body)
+            .then(user=> res.send(user))
+            .catch(next)
+    })
+    .delete("/:user_id", (req, res, next)=>{
+        model.Delete(req.params.user_id)
+            .then(user=> res.send({deleted: user}))
+            .catch(next)
+    })
     .post("/login", (req, res, next)=>{
         model.Login(req.body.handle, req.body.password)
             .then(user=>{
@@ -31,12 +41,6 @@ app
                 res.status(201).send(user)
         })
         .catch(next);
-    })
-    .post("/update", (req, res, next)=>{
-        res.status(201).send(model.Update(req.params.user_id, req.body));
-    })
-    .get("/delete", (req, res, next)=>{
-        res.status(201).send(model.Delete(req.params.user_id));
     })
 
 module.exports = app;

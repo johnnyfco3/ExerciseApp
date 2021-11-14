@@ -11,6 +11,16 @@ app
         })
         .catch(next);
     })
+    .get("/wall/:handle", (req, res, next) =>{
+        model.GetWall(req.params.handle)
+            .then(x=> res.send(x))
+            .catch(next)
+    })
+    .get("/feed/:handle", (req, res, next) =>{
+        model.GetWall(req.params.handle)
+            .then(x=> res.send(x))
+            .catch(next)
+    })
     .get("/search", (req, res, next)=>{
         res.send(model.Search(req.query.q));
     })
@@ -28,17 +38,17 @@ app
         })
         .catch(next);
     })
-    .post("/update", (req, res, next)=>{
+    .post("/:id", (req, res, next)=>{
         model.Update(req.params.id, req.body)
         .then(updatepost=>{
             res.status(201).send(updatepost);
         })
         .catch(next);
     })
-    .get("/delete", (req, res, next)=>{
+    .get("/:id", (req, res, next)=>{
         model.Delete(req.params.id)
         .then(deletepost=>{
-            res.status(201).send(deletepost);
+            res.send({deleted: deletepost});
         })
         .catch(next);
     })

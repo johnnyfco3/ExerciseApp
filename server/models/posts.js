@@ -1,6 +1,9 @@
-const { GetByHandle } = require("./users");
+const Users = require("./users");
+const { ObjectId } = require('bson');
 const {client} = require('./mongo');
+
 const collection = client.db(process.env.MONGO_DB).collection('posts');
+module.exports.collection = collection
 
 const list = [
     { 
@@ -32,47 +35,65 @@ const list = [
     },
 ];
 
-const listWithOwner = ()=> list.map(x => ({ 
-    ...x, 
-    user: GetByHandle(x.user_handle) 
-}) );
+const addOwnerPipeline = [
+    {"$lookup" : {
+        from: "users",
+        localField: 'user_handle',
+        foreignField: 'handle',
+        as: 'user',
+    }},
+    {$unwind: "$user"},
+    { $project: { "owner.password": 0}}
+];
 
 module.exports.GetAll = function GetAll() {
-    return collection.find().toArray();
+    return collection.aggregate(addOwnerPipeline).toArray();
 }
 
 module.exports.GetWall = function GetWall(handle) {
-    return listWithOwner().filter(post=> post.user_handle == handle);
+    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray;
 }
 
-module.exports.GetFeed = function GetFeed(handle) { return listWithOwner()
-    .filter(post=> GetByHandle(handle).following.some(f=> f.handle == post.user_handle && f.isApproved) );     }
+module.exports.GetFeed = function GetFeed(handle) {
+    const query = Users.collection.aggregate([
+        {$match: { handle }},
+        {"$lookup" : {
+            from: "posts",
+            localField: 'following.handle',
+            foreignField: 'user_handle',
+            as: 'posts'
+        }},
+        {$unwind: '$posts'},
+        {$replaceRoot: { newRoot: "$posts"} },
+    ].concat(addOwnerPipeline));
+    return query.toArray();
+}
 
-
-module.exports.Get = post_id => collection.findOne({_id: post_id});
+module.exports.Get = function Get(post_id) { return collection.findOne({_id: new ObjectId(post_id) }); }
 
 module.exports.Add = async function Add(post) {
     if(!post.user_handle){
         throw {code: 422, msg: "Post must have an Owner"}
     }
     post.time = Date();
-    const post1 = await collection.insertOne(post);
-    post_id = post1.insertedId;
-
+    const response = await collection.insertOne(post);
+    post_id = response.insertedId;
     return { ...post };
 }
 
 module.exports.Update = async function Update(post_id, post) {
-    const oldObj = collection.findOne({_id: post_id});
-    const newObj = { ...oldObj, ...post };
-    const result = await collection.updateOne({oldObj}, {$set: newObj}, {upsert: true});
-    return result;
+    const result = await collection.findOneAndUpdate(
+        {_id: new ObjectId(post_id)},
+        {$set: post},
+        {returnDocument: 'after'}
+    );
+
+    return result.value;
 }
 
 module.exports.Delete = async function Delete(post_id) {
-    const post = collection.findOne({_id: post_id});
-    const result = await collection.deleteOne({post});
-    return result;
+    const result = await collection.findOneAndDelete({_id: new ObjectId(post_id)});
+    return result.value;
 } 
 
-module.exports.Search = q => list.filter(x => x.caption.includes(q));
+module.exports.Search = q => collection.find({ caption: new RegExp(q,"i") }).toArray();

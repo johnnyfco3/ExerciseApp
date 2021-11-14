@@ -1,5 +1,8 @@
 const {client} = require('./mongo');
+const { ObjectId } = require('bson');
+
 const collection = client.db(process.env.MONGO_DB).collection('goals');
+module.exports.collection = collection
 
 const list = [
     { 
@@ -40,31 +43,44 @@ const list = [
     },
 ];
 
-module.exports.GetAll = function GetAll() { return collection.find().toArray(); }
+const addOwnerPipeline = [
+    {"$lookup" : {
+        from: "users",
+        localField: 'user_handle',
+        foreignField: 'handle',
+        as: 'user',
+    }},
+    {$unwind: "$user"},
+    { $project: { "owner.password": 0}}
+];
 
-module.exports.Get = goal_id => collection.findOne({_id: goal_id});
+module.exports.GetAll = function GetAll() { return collection.aggregate(addOwnerPipeline).toArray(); }
+
+module.exports.Get = function Get(goal_id) {collection.findOne({_id: new ObjectId(goal_id) }); }
 
 module.exports.GetGoalWall = function GetGoalWall(handle) {
-    return list.find(goal=> goal.user_handle == handle);
+    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray;
 }
 
 module.exports.Add = async function Add(goal) {
-     const goal1 = await collection.insertOne(goal);
-     goal_id = goal1.insertedId;
+     const response = await collection.insertOne(goal);
+     goal_id = response.insertedId;
 
      return { ...goal };
 }
 
 
 module.exports.Update = async function Update(goal_id, goal) {
-    const oldObj = collection.findOne({_id: goal_id});
-    const newObj = { ...oldObj, ...goal }
-    const result = await collection.updateOne({oldObj}, {$set: newObj}, {upsert: true});
-    return result;
+    const result = await collection.findOneAndUpdate(
+        {_id: new ObjectId(goal_id)},
+        {$set: goal},
+        {returnDocument: 'after'}
+    );
+
+    return result.value;
 }
 
 module.exports.Delete = function Delete(goal_id) {
-    const goal = collection.findOne({_id: goal_id});
-    const result = await collection.deleteOne({goal});
-    return result;
+    const result = await collection.findOneAndDelete({_id: new ObjectId(goal_id)});
+    return result.value;
 }

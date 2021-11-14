@@ -1,6 +1,6 @@
-import { GetByHandle } from "./users";
+import { api } from "./myFetch";
 
-const list = [
+/*const list = [
     { 
         src: "https://www.eatthis.com/wp-content/uploads/sites/4/2020/01/man-weight-lifting-training-workout-gym.jpg?quality=82&strip=1&resize=640%2C360",
         alt: "Placeholder image",
@@ -29,41 +29,27 @@ const list = [
         isPublic: true,
     },
 ];
-
-const listWithOwner = ()=> list.map(x => ({ 
-    ...x, 
-    user: GetByHandle(x.user_handle) 
-}) );
+*/
 
 export function GetAll() {
-    return listWithOwner();
+    return api('posts');
 }
 
 export function GetWall(handle) {
-    return listWithOwner().filter(post=> post.user_handle == handle);
+    return api('posts/wall/' + handle);
 }
 
-export function GetFeed(handle) { return listWithOwner()
-    .filter(post=> GetByHandle(handle).following.some(f=> f.handle == post.user_handle && f.isApproved) );     }
+export function GetFeed(handle) { 
+    return api('posts/feed/' + handle);
+}
 
-
-export function Get(post_id) { return list[post_id]; }
-export function GetAllPosts() { return list; }
+export function Get(post_id) { return api('posts/' + post_id); }
 export function Add(post) {
-    if(!post.user_handle){
-        throw {code: 422, msg: "Post must have an Owner"}
-    }
-     list.push(post);
      return { ...post };
 }
 export function Update(post_id, post) {
-    const oldObj = list[post_id];
-    const newObj = { ...oldObj, ...post }
-    list[post_id] = newObj ;
-    return newObj;
+    return {post_id, post};
 }
 export function Delete(post_id) {
-    const post = list[post_id];
-    list.splice(post_id, 1);
-    return post;
+    return post_id;
 } 
