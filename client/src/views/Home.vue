@@ -10,8 +10,8 @@
     </div>
 
       <div class="bottom-content">
-          <div class="posts" v-for="p in posts" :key="p.src">
-        <post :post="p" />
+          <div class="post" v-for="(p, i) in posts" :key="p.src">
+            <post :post="p" @remove="remove(p, i)" />
         </div>
 </div>
 </div>
@@ -21,7 +21,7 @@
 import Nav from '../components/Nav.vue';
 import Post from '../components/Post.vue';
 import session from '../services/session'
-import { GetFeed } from '../services/posts'
+import { GetFeed, Delete } from '../services/posts'
   
 export default {
   components: { 
@@ -29,14 +29,19 @@ export default {
     Post
   },
   data: ()=> ({
-    posts: GetFeed(session.user.handle),
-    messages: session.messages
+    posts: []
   }),
-  methods: {
-        done(i){
-            this.messages.splice(i, 1);
-        }
+  async mounted(){
+    this.posts = await GetFeed(session.user.handle)
+  },
+  methods:{
+    async remove(post, i){
+      const response = await Delete(post._id)
+      if(response.deleted){
+        this.posts.splice(i, 1)
+      }
     }
+  }
 }
 
 </script>

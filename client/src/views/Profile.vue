@@ -9,9 +9,7 @@
       <li><router-link to="/planner">Workout Planner</router-link></li>
     </ul>
   </div>
-  <div class="photo-content" v-for="p in posts" :key="p.src">
-    <user-posts :post="p" />
-  </div>
+  
   </div>
 </template>
 
@@ -19,16 +17,25 @@
 import Nav from '../components/Nav.vue'
 import UserInfo from '../components/UserInfo.vue'
 import session from '../services/session'
-import { GetWall } from '../services/posts'
-import UserPosts from '../components/UserPosts.vue'
+import { GetWall, Delete } from '../services/posts'
 
 export default {
-  components: { Nav, UserInfo,
-    UserPosts
+  components: { Nav, UserInfo
    },
   data: ()=> ({
-    posts: GetWall(session.user.handle)
-  })
+    posts: []
+  }),
+  async mounted(){
+    this.posts = await GetWall(session.user.handle)
+  },
+  methods:{
+    async remove(post, i){
+      const response = await Delete(post._id)
+      if(response.deleted){
+        this.posts.splice(i, 1)
+      }
+    }
+  }
 }
 </script>
 

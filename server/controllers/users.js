@@ -42,5 +42,12 @@ app
         })
         .catch(next);
     })
+    .post("/seed", (req, res, next)=>{
+        model.Seed()
+        .then(user=>{
+            res.send("Created").status(201);
+        })
+        .catch(next)
+    })
 
 module.exports = app;

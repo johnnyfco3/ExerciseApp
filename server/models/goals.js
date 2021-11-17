@@ -22,25 +22,7 @@ const list = [
         categoryS: "Rest",
         user_handle: "johnnyfco",
         isPublic: false,
-    },
-    { 
-        mon: "",
-        tues: "",
-        weds: "",
-        thurs: "",
-        fri: "",
-        sat: "",
-        sun: "",
-        categoryM: "",
-        categoryT: "",
-        categoryW: "",
-        categoryTH: "",
-        categoryF: "",
-        categorySA: "",
-        categoryS: "",
-        user_handle: "vp",
-        isPublic: false,
-    },
+    }
 ];
 
 const addOwnerPipeline = [
@@ -83,4 +65,10 @@ module.exports.Update = async function Update(goal_id, goal) {
 module.exports.Delete = function Delete(goal_id) {
     const result = await collection.findOneAndDelete({_id: new ObjectId(goal_id)});
     return result.value;
+}
+
+module.exports.Seed = async ()=>{
+    for (const x of list) {
+        await this.Add(x)
+    }
 }

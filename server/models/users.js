@@ -100,3 +100,7 @@ module.exports.Login = async function Login(handle, password){
 
     return { user: data };
 }
+
+module.exports.Seed = ()=>{
+    list.forEach(x=> module.exports.Add(x) )
+}

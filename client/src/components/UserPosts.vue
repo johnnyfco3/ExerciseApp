@@ -5,6 +5,7 @@
   <div class="card-image">
     <figure class="image is-4by3">
       <img :src="post.src" :alt="post.alt">
+      <button class="delete" @click="$emit('remove')"></button>
     </figure>
   </div>
   <div class="card-content">
@@ -32,7 +33,7 @@
 <script>
 export default {
   props: {
-        post: Object
+        post1: Object
     }
 }
 </script>
@@ -40,5 +41,10 @@ export default {
 <style>
 .card4 .media4 p{
   font-family: 'Times New Roman', Times, serif;
+}
+button.delete{
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 </style>

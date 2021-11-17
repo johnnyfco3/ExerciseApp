@@ -15,49 +15,49 @@
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label">Current Bench</label>
-                                        <input class="input is-info" type="text" name="max-bench" placeholder="lbs">
+                                        <input class="input is-info" type="text" name="max-bench" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label">Current Incline Bench</label>
-                                        <input class="input is-info" type="text" name="max-incline" placeholder="lbs">
+                                        <input class="input is-info" type="text" name="max-incline" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label">Current Overhead Press</label>
-                                        <input class="input is-info" type="text" name="max-over" placeholder="lbs">
+                                        <input class="input is-info" type="text" name="max-over" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-quarter">
                                     <div class="control">
                                         <label class="label">Current Deadlift</label>
-                                        <input class="input is-info" type="text" name="max-dead" placeholder="lbs">
+                                        <input class="input is-info" type="text" name="max-dead" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label"> Goal for Bench</label>
-                                        <input class="input is-primary" type="text" name="g-bench" placeholder="lbs">
+                                        <input class="input is-primary" type="text" name="g-bench" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label"> Goal for Incline</label>
-                                        <input class="input is-primary" type="text" name="g-incline" placeholder="lbs">
+                                        <input class="input is-primary" type="text" name="g-incline" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label"> Goal for Overhead</label>
-                                        <input class="input is-primary" type="text" name="g-over" placeholder="lbs">
+                                        <input class="input is-primary" type="text" name="g-over" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-quarter">
                                     <div class="control">
                                         <label class="label"> Goal for Deadlift</label>
-                                        <input class="input is-primary" type="text" name="g-dead" placeholder="lbs">
+                                        <input class="input is-primary" type="text" name="g-dead" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                             </div>
@@ -69,37 +69,37 @@
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label">Current Barbell Squats</label>
-                                        <input class="input is-info" type="text" name="max-bs" placeholder="lbs">
+                                        <input class="input is-info" type="text" name="max-bs" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label">Current Split Squats</label>
-                                        <input class="input is-info" type="text" name="max-ss" placeholder="lbs">
+                                        <input class="input is-info" type="text" name="max-ss" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label">Current Glute Bridges</label>
-                                        <input class="input is-info" type="text" name="max-gb" placeholder="lbs">
+                                        <input class="input is-info" type="text" name="max-gb" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label"> Goal: Barbell Squats</label>
-                                        <input class="input is-primary" type="text" name="g-bs" placeholder="lbs">
+                                        <input class="input is-primary" type="text" name="g-bs" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label"> Goal: Split Squats</label>
-                                        <input class="input is-primary" type="text" name="g-ss" placeholder="lbs">
+                                        <input class="input is-primary" type="text" name="g-ss" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label"> Goal: Glute Bridges</label>
-                                        <input class="input is-primary" type="text" name="g-gb" placeholder="lbs">
+                                        <input class="input is-primary" type="text" name="g-gb" placeholder="lbs">{{tracker.sun}}
                                     </div>
                                 </div>
                             </div>
@@ -111,13 +111,13 @@
                                 <div class="column is-half">
                                     <div class="control">
                                         <label class="label">Current: Miles</label>
-                                        <input class="input is-info" type="text" name="max-miles" placeholder="mi">
+                                        <input class="input is-info" type="text" name="max-miles" placeholder="mi">{{tracker.sun}}
                                     </div>
                                 </div>
                                 <div class="column is-half">
                                     <div class="control">
                                         <label class="label"> Goal: Miles</label>
-                                        <input class="input is-primary" type="text" name="g-miles" placeholder="mi">
+                                        <input class="input is-primary" type="text" name="g-miles" placeholder="mi">{{tracker.sun}}
                                     </div>
                                 </div>
                             </div>
@@ -137,8 +137,14 @@
 
 <script>
 import Nav from '../components/Nav.vue'
+import session from '../services/session'
+import { GetTrackWall } from '../services/tracker'
+
 export default {
   components: { Nav },
+  data: ()=> ({
+    tracker: GetTrackWall(session.user.handle)
+  })
 
 }
 </script>

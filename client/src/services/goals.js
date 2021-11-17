@@ -56,5 +56,5 @@ export function Update(goal_id, goal) {
 }
 
 export function Delete(goal_id) {
-    return goal_id;
+    return api('goals/' + goal_id, {}, "DELETE");
 }

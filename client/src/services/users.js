@@ -56,7 +56,7 @@ import { api } from "./myFetch";
 
 export function GetAll() { return api('users'); }
 export function Get(user_id) { return api('users/' + user_id); }
-export function GetByHandle(handle) { return ({ ...list.find( x => x.handle == handle ), password: undefined }); }
+export function GetByHandle(handle) { return api('users/' + handle)}
 export function Add(user) {
      return { ...user, password: undefined };
 }
@@ -67,5 +67,9 @@ export function Update(user_id, user) {
 }
 
 export function Delete(user_id) {
-    return user_id;
+    return api('users/' + user_id, {}, "DELETE");
+}
+
+export function Login(handle, password){
+    return {handle, password};
 }

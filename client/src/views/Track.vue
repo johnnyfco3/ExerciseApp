@@ -23,7 +23,10 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td></td>
+                    <td>{{tracker.sun}}</td>
+                    <td>{{tracker.sun}}</td>
+                    <td>{{tracker.sun}}</td>
+                    <td>{{tracker.sun}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -45,7 +48,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td></td>
+                    <td>{{tracker.sun}}</td>
+                    <td>{{tracker.sun}}</td>
+                    <td>{{tracker.sun}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -66,7 +71,7 @@
             </thead>
             <tbody>
               <tr>
-                <td></td>
+                <td>{{tracker.sun}}</td>
               </tr>
             </tbody>
           </table>
@@ -84,8 +89,14 @@
 <script>
 import Nav from '../components/Nav.vue'
 import UserInfo from '../components/UserInfo.vue'
+import { GetTrackWall } from '../services/tracker'
+import session from '../services/session'
+
 export default {
   components: { Nav, UserInfo },
+  data: ()=> ({
+    tracker: GetTrackWall(session.user.handle)
+  })
 
 }
 </script>

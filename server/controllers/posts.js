@@ -52,5 +52,9 @@ app
         })
         .catch(next);
     })
-
+    .post("/seed", (req, res, next) =>{
+        model.Seed()
+           .then( x=> res.status(201).send("Created") )
+            .catch(next)
+    })
 module.exports = app;
