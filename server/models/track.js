@@ -1,20 +1,20 @@
-const {client} = require('./mongo');
 const { ObjectId } = require('bson');
+const {client} = require('./mongo');
 
 const collection = client.db(process.env.MONGO_DB).collection('track');
 module.exports.collection = collection
 
-/*const list = [        commented out so that user can enter their own
+const list = [
     { 
-        cBench: "",
-        cIBench: "",
-        cOPress: "",
+        cBench: "225",
+        cIBench: "185",
+        cOPress: "95",
         cDeadlift: "",
         gBench: "",
-        gIncline: "",
+        gIncline: "225",
         gOPress: "",
         gDeadlift: "",
-        cBSquats: "",
+        cBSquats: "225",
         cSSquats: "",
         cGBridges: "",
         gBSquats: "",
@@ -24,28 +24,8 @@ module.exports.collection = collection
         gMiles: "",
         user_handle: "johnnyfco",
         isPublic: false,
-    },
-    { 
-        cBench: "",
-        cIBench: "",
-        cOPress: "",
-        cDeadlift: "",
-        gBench: "",
-        gIncline: "",
-        gOPress: "",
-        gDeadlift: "",
-        cBSquats: "",
-        cSSquats: "",
-        cGBridges: "",
-        gBSquats: "",
-        gSSquats: "",
-        gGBridges: "",
-        cMiles: "",
-        gMiles: "",
-        user_handle: "vp",
-        isPublic: false,
-    },
-];*/
+    }
+];
 
 const addOwnerPipeline = [
     {"$lookup" : {

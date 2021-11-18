@@ -9,6 +9,8 @@
       <li><router-link to="/planner">Workout Planner</router-link></li>
     </ul>
   </div>
+  <div class="post" v-for="(p, i) in posts" :key="p.src">
+            <user-posts :post="p" @remove="remove(p, i)" />
   
   </div>
 </template>
@@ -18,9 +20,11 @@ import Nav from '../components/Nav.vue'
 import UserInfo from '../components/UserInfo.vue'
 import session from '../services/session'
 import { GetWall, Delete } from '../services/posts'
+import Userposts from '../components/UserPosts.vue'
 
 export default {
-  components: { Nav, UserInfo
+  components: { Nav, UserInfo,
+  Userposts
    },
   data: ()=> ({
     posts: []

@@ -23,10 +23,10 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{tracker.sun}}</td>
-                    <td>{{tracker.sun}}</td>
-                    <td>{{tracker.sun}}</td>
-                    <td>{{tracker.sun}}</td>
+                    <td>{{tracker.cBench}}</td>
+                    <td>{{tracker.cIBench}}</td>
+                    <td>{{tracker.cOPress}}</td>
+                    <td>{{tracker.cDeadlift}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -48,9 +48,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{tracker.sun}}</td>
-                    <td>{{tracker.sun}}</td>
-                    <td>{{tracker.sun}}</td>
+                    <td>{{tracker.cBSquats}}</td>
+                    <td>{{tracker.cSSquats}}</td>
+                    <td>{{tracker.cGBridges}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -71,7 +71,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>{{tracker.sun}}</td>
+                <td>{{tracker.cMiles}}</td>
               </tr>
             </tbody>
           </table>

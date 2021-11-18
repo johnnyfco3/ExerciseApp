@@ -1,4 +1,3 @@
-const Users = require("./users");
 const { ObjectId } = require('bson');
 const {client} = require('./mongo');
 
@@ -54,7 +53,25 @@ module.exports.GetWall = function GetWall(handle) {
     return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray;
 }
 
+module.exports.GetFeed_ = function GetFeed_(handle) {
+    //  The "SQL" way to do things
+    const query = Users.collection.aggregate([
+        {$match: { handle }},
+        {"$lookup" : {
+            from: "posts",
+            localField: 'following.handle',
+            foreignField: 'user_handle',
+            as: 'posts'
+        }},
+        {$unwind: '$posts'},
+        {$replaceRoot: { newRoot: "$posts" } },
+    ].concat(addOwnerPipeline));
+    return query.toArray();
+
+}
+
 module.exports.GetFeed = async function (handle) {
+    //  The "MongoDB" way to do things. (Should test with a large `following` array)
     const user = await Users.collection.findOne({ handle });
     if(!user){
         throw { code: 404, msg: 'No such user'};

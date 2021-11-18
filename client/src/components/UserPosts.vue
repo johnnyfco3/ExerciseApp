@@ -33,7 +33,7 @@
 <script>
 export default {
   props: {
-        post1: Object
+        post: Object
     }
 }
 </script>

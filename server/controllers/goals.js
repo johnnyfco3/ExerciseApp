@@ -30,14 +30,14 @@ app
         })
         .catch(next);
     })
-    .post("/:id", (req, res, next)=>{
+    .patch("/:id", (req, res, next)=>{
         model.Update(req.params.id, req.body)
         .then(updategoal=>{
             res.status(201).send(updategoal);
         })
         .catch(next);
     })
-    .get("/:id", (req, res, next)=>{
+    .delete("/:id", (req, res, next)=>{
         model.Delete(req.params.id)
         .then(deletegoal=>{
             res.send({deleted: deletegoal});

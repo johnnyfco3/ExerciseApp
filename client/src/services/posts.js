@@ -1,36 +1,5 @@
 import { api } from "./myFetch";
 
-/*const list = [
-    { 
-        src: "https://www.eatthis.com/wp-content/uploads/sites/4/2020/01/man-weight-lifting-training-workout-gym.jpg?quality=82&strip=1&resize=640%2C360",
-        alt: "Placeholder image",
-        caption: "Lorem Ipsom",
-        time: Date(),
-        user_handle: "johnnyfco",
-        category: "Back/Biceps",
-        isPublic: true,
-    },
-    { 
-        src: "https://post.healthline.com/wp-content/uploads/2019/10/Female_Male_Rope_Workout_1200x628-facebook.jpg",
-        alt: "Placeholder image",
-        caption: "jdkjfkjfkf",
-        time: Date(),
-        user_handle: "johnnyfco",
-        category: "Chest/Triceps",
-        isPublic: true,
-    },
-    { 
-        src: "https://post.healthline.com/wp-content/uploads/2019/10/Female_Male_Rope_Workout_1200x628-facebook.jpg",
-        alt: "Placeholder image",
-        caption: "kgjjfhfkfhfhgfhghggh",
-        time: Date(),
-        user_handle: "vp",
-        category: "Legs",
-        isPublic: true,
-    },
-];
-*/
-
 export function GetAll() {
     return api('posts');
 }

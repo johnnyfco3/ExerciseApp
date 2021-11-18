@@ -44,8 +44,7 @@ const list = [
                 handle: 'johnnyfco', isApproved: true 
             }
         ],
-    },
-
+    }
 ];
 
 module.exports.GetAll = function GetAll() { return collection.find().toArray(); }
@@ -101,6 +100,8 @@ module.exports.Login = async function Login(handle, password){
     return { user: data };
 }
 
-module.exports.Seed = ()=>{
-    list.forEach(x=> module.exports.Add(x) )
+module.exports.Seed = async ()=>{
+    for (const x of list) {
+        await module.exports.Add(x)
+    }
 }
