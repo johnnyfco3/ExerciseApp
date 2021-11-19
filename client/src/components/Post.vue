@@ -13,6 +13,7 @@
       <div class="media-content">
         <p class="subtitle is-4">{{post.user_handle}}</p>
         <p class="subtitle is-6"><br>{{post.category}}<br></p>
+        <time :datetime="post.time">{{prettyDate}}</time>
       </div>
     </div>
 
@@ -34,6 +35,16 @@
 export default {
   props: {
         post: Object
+    },
+    computed: {
+        prettyDate(){
+            if(this.post.time && this.post.time.toDateString){
+                return this.post.time.toDateString()
+            }else{
+                return 'Never'
+            }
+            
+        }
     }
 }
 </script>

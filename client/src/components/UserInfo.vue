@@ -16,7 +16,7 @@
           <h1 class="subtitle">Height: {{users.height}}</h1>
           <h1 class="subtitle">Weight: {{users.weight}}</h1>
       </div>
-        <p><span>2</span> Highlights</p>
+        <p><span>0</span> Highlights</p>
         <router-link to="/community"><span>0</span> Motivators</router-link>
         <router-link to="/community"><span>0</span> Inspires</router-link>
     </div>

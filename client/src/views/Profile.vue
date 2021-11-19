@@ -10,8 +10,8 @@
     </ul>
   </div>
   <div class="post" v-for="(p, i) in posts" :key="p.src">
-            <user-posts :post="p" @remove="remove(p, i)" />
-  
+    <user-posts :post="p" @remove="remove(p, i)" />
+  </div>
   </div>
 </template>
 
@@ -20,11 +20,11 @@ import Nav from '../components/Nav.vue'
 import UserInfo from '../components/UserInfo.vue'
 import session from '../services/session'
 import { GetWall, Delete } from '../services/posts'
-import Userposts from '../components/UserPosts.vue'
+import UserPosts from '../components/UserPosts.vue'
 
 export default {
   components: { Nav, UserInfo,
-  Userposts
+    UserPosts
    },
   data: ()=> ({
     posts: []

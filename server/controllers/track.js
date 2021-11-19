@@ -18,7 +18,7 @@ app
         })
         .catch(next);
     })
-    .post("/create", (req, res, next)=>{
+    .post("/", (req, res, next)=>{
         model.Add(req.body)
         .then(track=>{
             res.status(201).send(track);
@@ -27,15 +27,15 @@ app
     })
     .patch("/:id", (req, res, next)=>{
         model.Update(req.params.id, req.body)
-        .then(updatepost=>{
-            res.status(201).send(updatepost);
+        .then(updatetrack=>{
+            res.status(201).send(updatetrack);
         })
         .catch(next);
     })
     .delete("/:id", (req, res, next)=>{
         model.Delete(req.params.id)
-        .then(deletepost=>{
-            res.send({deleted: deletepost});
+        .then(deletetrack=>{
+            res.send({deleted: deletetrack});
         })
         .catch(next);
     })

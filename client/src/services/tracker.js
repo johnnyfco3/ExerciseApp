@@ -10,11 +10,11 @@ export function GetTrackWall(handle) {
 }
 
 export function Add(track) {
-     return { ...track };
+    return api('track', track);
 }
 
 export function Update(track_id, track) {
-    return track, track_id;
+    return api('track/' + track_id, track, 'PATCH');
 }
 
 export function Delete(track_id) {

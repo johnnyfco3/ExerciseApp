@@ -1,4 +1,4 @@
-const list = [
+/*const list = [
     { 
         firstName: 'Johnny',
         lastName: 'Tejada',
@@ -49,56 +49,28 @@ const list = [
         ],
     },
 
-];
+];*/
 
 
-export function GetAll() { return list; }
-export function Get(user_id) { return list[user_id]; }
-export function GetByHandle(handle) { return ({ ...list.find( x => x.handle == handle ), password: undefined }); } 
+import { api } from "./myFetch";
+
+export function GetAll() { return api('users'); }
+export function Get(user_id) { return  api('users/' + user_id); }
+export function GetByHandle(handle) { return  api('users/byhandle/' + handle); } 
 
 export function Add(user) {
-    if(!user.firstName){
-        throw { code: 422, msg: "First Name is required" }
-    }
-     list.push(user);
-     return { ...user, password: undefined };
+     return api('users/register', user);
 }
 
 
 export function Update(user_id, user) {
-    const oldObj = list[user_id];
-    if(user.firstName){
-        oldObj.firstName = user.firstName;
-    }
-    if(user.lastName){
-        oldObj.lastName = user.lastName;
-    }
-    if(user.handle){
-        oldObj.handle = user.handle;
-    }
-    if(user.pic){
-        oldObj.pic = user.pic;
-    }
-    //list[user_id] = newObj ;
-    return { ...oldObj, password: undefined };
+    return api('users/' + user_id, user, 'PATCH');
 }
 
 export function Delete(user_id) {
-    const user = list[user_id];
-    list.splice(user_id, 1);
-    return user;
+    return api('users/' + user_id, {}, 'DELETE');
 }
 
 export function Login(handle, password){
-    console.log({ handle, password})
-    const user = list.find(x=> x.handle == handle);
-    if(!user) throw { code: 401, msg: "Sorry there is no user with that handle" };
-
-    if( ! (password == user.password) ){
-        throw { code: 401, msg: "Wrong Password" };
-    }
-
-    const data = { ...user, password: undefined };
-
-    return { user: data };
+    return api('users/login', { handle, password });
 }

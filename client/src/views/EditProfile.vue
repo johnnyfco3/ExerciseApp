@@ -9,52 +9,39 @@
             <div class="card card7">
                 <div class="card-content">
                     <div class="content">
-                      <form action="/profile">
+                      <form @submit.prevent="update()">
                         <div class="field">
                             <label class="label">Profile Picture</label>
-                            <div class="file has-name">
-                                <label class="file-label">
-                                  <input class="file-input" type="file" name="resume">
-                                  <span class="file-cta">
-                                    <span class="file-icon">
-                                      <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
-                                      Choose a file…
-                                    </span>
-                                  </span>
-                                  <span class="file-name">
-                                    Screen Shot 2017-07-29 at 15.54.25.png
-                                  </span>
-                                </label>
-                              </div>
+                            <div class="control">
+                              <input class="input" type="url" v-model="users.pic" :placeholder="users.pic">
+                            </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Username</label>
                             <div class="control">
-                              <input class="input is-info" type="text" name="username" :placeholder="users.handle">
+                              <input class="input is-info" type="text" name="username" v-model="users.handle" :placeholder="users.handle">
                             </div>
                           </div>
           
                         <div class="field">
                           <label class="label">Age</label>
                           <div class="control">
-                            <input class="input is-info" type="text" name="age" :placeholder="users.age">
+                            <input class="input is-info" type="text" name="age" v-model="users.age" :placeholder="users.age">
                           </div>
                         </div>
                         
                         <div class="field">
                           <label class="label">Weight</label>
                           <div class="control">
-                            <input class="input is-info" type="number" name="weight" :placeholder="users.weight">
+                            <input class="input is-info" type="number" name="weight" v-model="users.weight" :placeholder="users.weight">
                           </div>
                        </div>
 
                        <div class="field">
                         <label class="label">Email</label>
                         <div class="control">
-                          <input class="input is-info" type="email" name="email" :placeholder="users.emails">
+                          <input class="input is-info" type="email" name="email" v-model="users.emails" :placeholder="users.emails">
                         </div>
                      </div>
                         
@@ -64,12 +51,6 @@
                           </div>
                         </div>
                         </form>
-                        <hr>
-                        <div class="field is-grouped">
-                          <div class="control">
-                            <button class="button is-danger">Delete Account</button>
-                          </div>
-                        </div>
                     </div>
         </div>
     </div>
@@ -83,14 +64,21 @@
 import Nav from '../components/Nav.vue'
 import { GetByHandle } from '../services/users'
 import session from '../services/session'
+import { Update } from '../services/users'
 
 export default {
   components: { 
       Nav
     },
     data: ()=> ({
-    users: GetByHandle(session.user.handle)
-  })
+      users: GetByHandle(session.user.handle),
+  }),
+  methods: {
+    async update(){
+      const response = await Update(session.user.user_id, session.user);
+      console.log({response});
+    }
+  },
 
 }
 </script>

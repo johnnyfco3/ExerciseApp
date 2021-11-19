@@ -12,41 +12,62 @@
                         </div>
                     </div>
                     <div class="content">
-                      <form action="/info">
+                      <form @submit.prevent="register()">
                         <div class="field">
-                            <label class="label">Full Name</label>
+                            <label class="label">First Name</label>
                             <div class="control">
-                              <input class="input is-info" type="text" name="name" required>
+                              <input class="input is-info" type="text" name="name" required v-model="users.firstName">
                             </div>
                         </div>
+
+                        <div class="field">
+                            <label class="label">Last Name</label>
+                            <div class="control">
+                              <input class="input is-info" type="text" name="name" required v-model="users.lastName">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Age</label>
+                            <div class="control">
+                              <input class="input is-info" type="number" name="age" required v-model="users.age">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Height</label>
+                            <div class="control">
+                              <input class="input is-info" type="text" name="height" placeholder="#ft #in" required v-model="users.height">
+                            </div>
+                          </div>
+
+                          <div class="field">
+                          <label class="label">Weight</label>
+                          <div class="control">
+                            <input class="input is-info" type="number" name="weight" placeholder="lbs" v-model="users.weight">
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Username</label>
+                          <div class="control">
+                            <input class="input is-info" type="text" name="username" required v-model="users.handle">
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Create a Password</label>
+                          <div class="control">
+                            <input class="input is-info" type="password" name="password" required v-model="users.password">
+                          </div>
+                       </div>
 
                         <div class="field">
                             <label class="label">Email Address</label>
                             <div class="control">
-                              <input class="input is-info" type="email" name="email" required>
+                              <input class="input is-info" type="email" name="email" required v-model="users.emails">
                             </div>
                           </div>
-          
-                        <div class="field">
-                          <label class="label">Username</label>
-                          <div class="control">
-                            <input class="input is-info" type="text" name="username" required>
-                          </div>
-                        </div>
-                        
-                        <div class="field">
-                          <label class="label">Create a Password</label>
-                          <div class="control">
-                            <input class="input is-info" type="password" name="password" required>
-                          </div>
-                       </div>
-
-                       <div class="field">
-                        <label class="label">Match Password</label>
-                        <div class="control">
-                          <input class="input is-info" type="password" required>
-                        </div>
-                     </div>
                         
                         <div class="field">
                           <div class="control">
@@ -57,11 +78,10 @@
                           </div>
                         </div>
                         
-                        <div class="field is-grouped">
-                          <div class="control">
-                            <button class="button is-link">Sign Up</button>
-                          </div>
-                        </div>
+                        <footer class="card-footer">
+                          <button class="button is-link card-footer-item" type="submit">Register</button>
+                        </footer>
+
                         </form>
                     </div>
                 </div>
@@ -72,7 +92,26 @@
 </template>
 
 <script>
+import { Add } from '../services/users';
+
 export default {
+  props: {
+        users: Object
+  },
+  data: ()=> ({
+        user: [],
+        newUser
+    }),
+    methods: {
+        async register(){
+            const response = await Add(this.newUser);
+            console.log({response});
+
+            if(response){
+                this.posts.unshift(this.newUser);
+            }
+        }
+    }
 
 }
 </script>

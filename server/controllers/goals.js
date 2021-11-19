@@ -23,7 +23,7 @@ app
         })
         .catch(next);
     })
-    .post("/create", (req, res, next)=>{
+    .post("/", (req, res, next)=>{
         model.Add(req.body)
         .then(goal=>{
             res.status(201).send(goal);

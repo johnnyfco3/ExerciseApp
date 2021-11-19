@@ -56,7 +56,7 @@
               </table>
           <div class="begin">
             <router-link class="button is-primary" style="font-weight: 600;" to="/trackdts">
-                Edit
+                Add New
             </router-link>
           </div>
           </div>

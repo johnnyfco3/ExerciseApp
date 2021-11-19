@@ -7,13 +7,13 @@ export function Get(goal_id) { return api('goals/' + goal_id); }
 export function GetGoalWall(handle) {
     return api('goals/wall/' + handle);
 }
+
 export function Add(goal) {
-     return { ...goal };
+    return api('goals', goal);
 }
 
-
 export function Update(goal_id, goal) {
-    return {goal_id, goal};
+    return api('goals/' + goal_id, goal, 'PATCH');
 }
 
 export function Delete(goal_id) {

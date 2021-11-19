@@ -42,7 +42,7 @@
           </div>
         </form>
           <hr class="navbar-divider">
-          Don't have an account, <a href="signup.html">Sign up</a>
+          Don't have an account, <a @click="signup">Sign up</a>
       </div>
     </div>
     </div>
@@ -63,7 +63,10 @@ export default {
   methods: {
     login(){
       this.Session.Login(this.username, this.password);
-    }
+    },
+    signup (){
+            this.$router.push('/signup')
+        }
   }
 }
 </script>
