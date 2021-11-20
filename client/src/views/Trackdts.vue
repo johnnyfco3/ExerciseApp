@@ -15,49 +15,49 @@
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label">Current Bench</label>
-                                        <input class="input is-info" type="text" name="max-bench" placeholder="lbs" v-model="tracker.cBench">
+                                        <input class="input is-info" type="text" name="max-bench" v-model="track.cBench" :placeholder="tracker.cBench">
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label">Current Incline Bench</label>
-                                        <input class="input is-info" type="text" name="max-incline" placeholder="lbs" v-model="tracker.cIBench">
+                                        <input class="input is-info" type="text" name="max-incline" v-model="track.cIBench" :placeholder="tracker.cIBench">
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label">Current Overhead Press</label>
-                                        <input class="input is-info" type="text" name="max-over" placeholder="lbs" v-model="tracker.cOPress">
+                                        <input class="input is-info" type="text" name="max-over" v-model="track.cOPress" :placeholder="tracker.cOPress">
                                     </div>
                                 </div>
                                 <div class="column is-one-quarter">
                                     <div class="control">
                                         <label class="label">Current Deadlift</label>
-                                        <input class="input is-info" type="text" name="max-dead" placeholder="lbs" v-model="tracker.cDeadlift">
+                                        <input class="input is-info" type="text" name="max-dead" v-model="track.cDeadlift" :placeholder="tracker.cDeadlift">
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label"> Goal for Bench</label>
-                                        <input class="input is-primary" type="text" name="g-bench" placeholder="lbs" v-model="tracker.gBench">
+                                        <input class="input is-primary" type="text" name="g-bench" v-model="track.gBench" :placeholder="tracker.gBench">
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label"> Goal for Incline</label>
-                                        <input class="input is-primary" type="text" name="g-incline" placeholder="lbs" v-model="tracker.gIncline">
+                                        <input class="input is-primary" type="text" name="g-incline" v-model="track.gIncline" :placeholder="tracker.gIncline">
                                     </div>
                                 </div>
                                 <div class="column is-one-fifth">
                                     <div class="control">
                                         <label class="label"> Goal for Overhead</label>
-                                        <input class="input is-primary" type="text" name="g-over" placeholder="lbs" v-model="tracker.gOPress">
+                                        <input class="input is-primary" type="text" name="g-over" v-model="track.gOPress" :placeholder="tracker.gOPress">
                                     </div>
                                 </div>
                                 <div class="column is-one-quarter">
                                     <div class="control">
                                         <label class="label"> Goal for Deadlift</label>
-                                        <input class="input is-primary" type="text" name="g-dead" placeholder="lbs" v-model="tracker.gDeadlift">
+                                        <input class="input is-primary" type="text" name="g-dead" v-model="track.gDeadlift" :placeholder="tracker.gDeadlift">
                                     </div>
                                 </div>
                             </div>
@@ -69,37 +69,37 @@
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label">Current Barbell Squats</label>
-                                        <input class="input is-info" type="text" name="max-bs" placeholder="lbs" v-model="tracker.cBSquats">
+                                        <input class="input is-info" type="text" name="max-bs" v-model="track.cBSquats" :placeholder="tracker.cBSquats">
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label">Current Split Squats</label>
-                                        <input class="input is-info" type="text" name="max-ss" placeholder="lbs" v-model="tracker.cSSquats">
+                                        <input class="input is-info" type="text" name="max-ss" v-model="track.cSSquats" :placeholder="tracker.cSSquats">
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label">Current Glute Bridges</label>
-                                        <input class="input is-info" type="text" name="max-gb" placeholder="lbs" v-model="tracker.cGBridges">
+                                        <input class="input is-info" type="text" name="max-gb" v-model="track.cGBridges" :placeholder="tracker.cGBridges">
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label"> Goal: Barbell Squats</label>
-                                        <input class="input is-primary" type="text" name="g-bs" placeholder="lbs" v-model="tracker.gBSquats">
+                                        <input class="input is-primary" type="text" name="g-bs" v-model="track.gBSquats" :placeholder="tracker.gBSquats">
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label"> Goal: Split Squats</label>
-                                        <input class="input is-primary" type="text" name="g-ss" placeholder="lbs" v-model="tracker.gSSquats">
+                                        <input class="input is-primary" type="text" name="g-ss" v-model="track.gSSquats" :placeholder="tracker.gSSquats">
                                     </div>
                                 </div>
                                 <div class="column is-one-third">
                                     <div class="control">
                                         <label class="label"> Goal: Glute Bridges</label>
-                                        <input class="input is-primary" type="text" name="g-gb" placeholder="lbs" v-model="tracker.cGBridges">
+                                        <input class="input is-primary" type="text" name="g-gb" v-model="track.gGBridges" :placeholder="tracker.gGBridges">
                                     </div>
                                 </div>
                             </div>
@@ -111,13 +111,13 @@
                                 <div class="column is-half">
                                     <div class="control">
                                         <label class="label">Current: Miles</label>
-                                        <input class="input is-info" type="text" name="max-miles" placeholder="mi" v-model="tracker.cMiles">
+                                        <input class="input is-info" type="text" name="max-miles" v-model="track.cMiles" :placeholder="tracker.cMiles">
                                     </div>
                                 </div>
                                 <div class="column is-half">
                                     <div class="control">
                                         <label class="label"> Goal: Miles</label>
-                                        <input class="input is-primary" type="text" name="g-miles" placeholder="mi" v-model="tracker.gMiles">
+                                        <input class="input is-primary" type="text" name="g-miles" v-model="track.gMiles" :placeholder="tracker.gMiles">
                                     </div>
                                 </div>
                             </div>
@@ -142,16 +142,15 @@ export default {
   components: { Nav },
   data: ()=> ({
     tracker: GetTrackWall(session.user.handle),
-    track: [],
-    newTrack
+    track: []
   }),
   methods: {
         async add(){
-            const response = await Add(this.newTrack);
+            const response = await Add(this.track);
             console.log({response});
 
             if(response){
-                this.track.unshift(this.newTrack);
+                this.track.unshift(this.track);
             }
         }
     }

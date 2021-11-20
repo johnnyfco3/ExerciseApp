@@ -95,20 +95,16 @@
 import { Add } from '../services/users';
 
 export default {
-  props: {
-        users: Object
-  },
   data: ()=> ({
-        user: [],
-        newUser
+        users: []
     }),
     methods: {
         async register(){
-            const response = await Add(this.newUser);
+            const response = await Add(this.users);
             console.log({response});
 
             if(response){
-                this.posts.unshift(this.newUser);
+                this.posts.unshift(this.users);
             }
         }
     }

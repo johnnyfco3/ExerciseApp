@@ -46,7 +46,7 @@
 import LogoutBadge from './LogoutBadge.vue'
 export default {
   components: { 
-      LogoutBadge },
+      LogoutBadge }
 
 }
 </script>

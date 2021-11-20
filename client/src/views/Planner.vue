@@ -233,16 +233,15 @@ export default {
     },
     data: ()=> ({
       goal: GetGoalWall(session.user.handle),
-      goals = [],
-      newGoal
+      goals: []
     }),
     methods: {
         async add(){
-            const response = await Add(this.newGoal);
+            const response = await Add(this.goals);
             console.log({response});
 
             if(response){
-                this.track.unshift(this.newGoal);
+                this.track.unshift(this.goals);
             }
         }
     }

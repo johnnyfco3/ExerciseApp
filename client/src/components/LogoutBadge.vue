@@ -1,6 +1,6 @@
 <template>
     <div class="buttons">
-        <a class="button is-info" href="/">
+        <a class="button is-info" @click="welcome">
             Log out
         </a>
     </div>
@@ -8,7 +8,11 @@
 
 <script>
 export default {
-
+    methods: {
+        welcome(){
+            this.$router.push('/welcome');
+        }
+    }
 }
 </script>
 

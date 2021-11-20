@@ -8,14 +8,14 @@
     <table class="table is-fullwidth is-striped">
         <thead>
           <tr>
-            <th>Motivators (Count)</th>
-            <th>Inspires (Count)</th>
+            <th>Motivators</th>
+            <th>Inspires</th>
           </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>{{following.handle}}</td>
-                <td>{{followers.handle}}</td>
+            <tr v-for="u in list" :key="u.handle">
+                <td>{{u.following.handle}}</td>
+                <td>{{u.followers.handle}}</td>
           </tr>
         </tbody>
       </table>
@@ -25,17 +25,21 @@
 
 <script>
 import Nav from '../components/Nav.vue'
-import { GetByHandle } from '../services/users'
 import session from '../services/session'
+import { GetByHandle } from '../services/users'
 
 export default {
   components: { 
       Nav
     },
-    data: ()=> ({
-      following: GetByHandle(session.user.handle).following,
-      followers: GetByHandle(session.user.handle).followers
-  })
+    data() {
+        return {
+            list: []
+        }
+    },
+    async mounted(){
+        this.list = await GetByHandle(session.user.handle);
+    }
 
 }
 </script>

@@ -13,35 +13,35 @@
                         <div class="field">
                             <label class="label">Profile Picture</label>
                             <div class="control">
-                              <input class="input" type="url" v-model="users.pic" :placeholder="users.pic">
+                              <input class="input" type="url" v-model="user.pic" :placeholder="users.pic">
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Username</label>
                             <div class="control">
-                              <input class="input is-info" type="text" name="username" v-model="users.handle" :placeholder="users.handle">
+                              <input class="input is-info" type="text" name="username" v-model="user.handle" :placeholder="users.handle">
                             </div>
                           </div>
           
                         <div class="field">
                           <label class="label">Age</label>
                           <div class="control">
-                            <input class="input is-info" type="text" name="age" v-model="users.age" :placeholder="users.age">
+                            <input class="input is-info" type="text" name="age" v-model="user.age" :placeholder="users.age">
                           </div>
                         </div>
                         
                         <div class="field">
                           <label class="label">Weight</label>
                           <div class="control">
-                            <input class="input is-info" type="number" name="weight" v-model="users.weight" :placeholder="users.weight">
+                            <input class="input is-info" type="number" name="weight" v-model="user.weight" :placeholder="users.weight">
                           </div>
                        </div>
 
                        <div class="field">
                         <label class="label">Email</label>
                         <div class="control">
-                          <input class="input is-info" type="email" name="email" v-model="users.emails" :placeholder="users.emails">
+                          <input class="input is-info" type="email" name="email" v-model="user.emails" :placeholder="users.emails">
                         </div>
                      </div>
                         
@@ -72,6 +72,7 @@ export default {
     },
     data: ()=> ({
       users: GetByHandle(session.user.handle),
+      user: []
   }),
   methods: {
     async update(){

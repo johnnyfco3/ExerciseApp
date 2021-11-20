@@ -4,7 +4,6 @@ import Welcome from '../views/Welcome.vue'
 import Community from '../views/Community.vue'
 import CreatePost from '../views/CreatePost.vue'
 import EditProfile from '../views/EditProfile.vue'
-import Info from '../views/Info.vue'
 import Planner from '../views/Planner.vue'
 import Signup from '../views/Signup.vue'
 import Track from '../views/Track.vue'
@@ -41,11 +40,6 @@ const routes = [
     name: 'EditProfile',
     component: EditProfile,
     meta: { requiresLogin: true }
-  },
-  {
-    path: '/info',
-    name: 'Info',
-    component: Info
   },
   {
     path: '/planner',

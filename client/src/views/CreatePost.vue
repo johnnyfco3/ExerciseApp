@@ -76,6 +76,7 @@
 <script>
 import Nav from '../components/Nav.vue'
 import { Add } from '../services/posts';
+import session from '../services/session';
 
 const newPost = () =>({ user: session.user, user_handle: session.user.user_handle })
 
