@@ -10,6 +10,7 @@ import Track from '../views/Track.vue'
 import Trackdts from '../views/Trackdts.vue'
 import Profile from '../views/Profile.vue'
 import Session from '../services/session'
+import Other from '../views/Other.vue'
 
 const routes = [
   {
@@ -68,6 +69,13 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile,
+    meta: { requiresLogin: true }
+    
+  },
+  {
+    path: '/other',
+    name: 'Other',
+    component: Other,
     meta: { requiresLogin: true }
     
   },

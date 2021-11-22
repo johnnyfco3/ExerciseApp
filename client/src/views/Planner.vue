@@ -232,9 +232,12 @@ export default {
       UserInfo
     },
     data: ()=> ({
-      goal: GetGoalWall(session.user.handle),
+      goal: [],
       goals: []
     }),
+    async mounted(){
+      this.goal = await GetGoalWall(session.user.handle)
+  },
     methods: {
         async add(){
             const response = await Add(this.goals);
@@ -242,6 +245,8 @@ export default {
 
             if(response){
                 this.track.unshift(this.goals);
+                this.$router.push('/planner');
+      
             }
         }
     }

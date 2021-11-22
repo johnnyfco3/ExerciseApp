@@ -71,13 +71,20 @@ export default {
       Nav
     },
     data: ()=> ({
-      users: GetByHandle(session.user.handle),
+      users: [],
       user: []
   }),
+  async mounted(){
+    this.users = await GetByHandle(session.user.handle)
+  },
   methods: {
     async update(){
       const response = await Update(session.user.user_id, session.user);
       console.log({response});
+
+      if(response){
+          this.$router.push('/profile');
+      }
     }
   },
 

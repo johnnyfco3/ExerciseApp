@@ -96,6 +96,7 @@ export default {
             if(response){
                 this.posts.unshift(this.newPost);
                 this.newPost = newPost();
+                this.$router.push('/home');
             }
         }
     }

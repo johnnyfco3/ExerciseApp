@@ -9,6 +9,8 @@
         </div>
     </div>
 
+  <Searchbar />
+
       <div class="bottom-content">
           <div class="post" v-for="(p, i) in posts" :key="p.src">
             <post :post="p" @remove="remove(p, i)" />
@@ -22,11 +24,13 @@ import Nav from '../components/Nav.vue';
 import Post from '../components/Post.vue';
 import session from '../services/session'
 import { GetFeed, Delete } from '../services/posts'
+import Searchbar from '../components/Searchbar.vue';
   
 export default {
   components: { 
     Nav,
-    Post
+    Post,
+    Searchbar
   },
   data: ()=> ({
     posts: []

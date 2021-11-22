@@ -95,8 +95,11 @@ import session from '../services/session'
 export default {
   components: { Nav, UserInfo },
   data: ()=> ({
-    tracker: GetTrackWall(session.user.handle)
-  })
+    tracker: []
+  }),
+  async mounted(){
+    this.tracker = await GetTrackWall(session.user.handle)
+  },
 
 }
 </script>

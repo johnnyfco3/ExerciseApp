@@ -37,8 +37,11 @@ import session from '../services/session'
 
 export default {
   data: ()=> ({
-    users: GetByHandle(session.user.handle)
-  })
+    users: []
+  }),
+  async mounted(){
+    this.posts = await GetByHandle(session.user.handle)
+  },
 }
 </script>
 

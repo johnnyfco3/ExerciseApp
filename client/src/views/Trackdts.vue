@@ -141,9 +141,12 @@ import { Add, GetTrackWall } from '../services/tracker'
 export default {
   components: { Nav },
   data: ()=> ({
-    tracker: GetTrackWall(session.user.handle),
+    tracker: [],
     track: []
   }),
+  async mounted(){
+    this.tracker = await GetTrackWall(session.user.handle)
+  },
   methods: {
         async add(){
             const response = await Add(this.track);
@@ -151,6 +154,7 @@ export default {
 
             if(response){
                 this.track.unshift(this.track);
+                this.$router.push('/track');
             }
         }
     }
