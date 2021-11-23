@@ -1,5 +1,5 @@
 <template>
-<div class="searchbar">
+<div class="searchbar is-fullwidth">
   <form @submit.prevent="search()">
     <div class="field is-grouped">
       <p class="control is-expanded">
@@ -16,14 +16,11 @@
 </template>
 
 <script>
-import { Get, GetByHandle } from '../services/users'
+import { Get } from '../services/users'
 export default {
     data: ()=> ({
         user: []
   }),
-  async mounted(){
-    this.user = await GetByHandle(this.user.handle)
-  },
   methods:{
     async search(){
       const response = await Get(this.user.handle)

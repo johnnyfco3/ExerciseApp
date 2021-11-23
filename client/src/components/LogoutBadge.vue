@@ -10,7 +10,7 @@
 export default {
     methods: {
         welcome(){
-            this.$router.push('/welcome');
+            this.$router.push('/');
         }
     }
 }

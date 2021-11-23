@@ -58,7 +58,7 @@ module.exports.Add = async function Add(user) {
         return Promise.reject( { code: 422, msg: "First Name is required" })
     }
 
-    const hash = await bcrypt.hash(user.password, process.env.SALT_ROUNDS)
+    const hash = await bcrypt.hash(user.password, +process.env.SALT_ROUNDS)
     
     user.password = hash;
 

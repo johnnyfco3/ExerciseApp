@@ -13,7 +13,7 @@ const list = [
         time: Date(),
         user_handle: "johnnyfco",
         category: "Back/Biceps",
-        isPublic: true,
+        isPublic: true
     },
     { 
         src: "https://post.healthline.com/wp-content/uploads/2019/10/Female_Male_Rope_Workout_1200x628-facebook.jpg",
@@ -22,7 +22,7 @@ const list = [
         time: Date(),
         user_handle: "johnnyfco",
         category: "Chest/Triceps",
-        isPublic: true,
+        isPublic: true
     },
     { 
         src: "https://post.healthline.com/wp-content/uploads/2019/10/Female_Male_Rope_Workout_1200x628-facebook.jpg",
@@ -31,8 +31,8 @@ const list = [
         time: Date(),
         user_handle: "vp",
         category: "Legs",
-        isPublic: true,
-    },
+        isPublic: true
+    }
 ];
 
 const addOwnerPipeline = [
@@ -51,7 +51,7 @@ module.exports.GetAll = function GetAll() {
 }
 
 module.exports.GetWall = function GetWall(handle) {
-    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray;
+    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
 module.exports.GetFeed_ = function GetFeed_(handle) {

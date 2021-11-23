@@ -9,7 +9,7 @@
         </div>
     </div>
 
-  <Searchbar />
+    <Searchbar />
 
       <div class="bottom-content">
           <div class="post" v-for="(p, i) in posts" :key="p.src">

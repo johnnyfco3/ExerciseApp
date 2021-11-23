@@ -4,6 +4,8 @@ require('dotenv').config();
 
 const usersController = require('./controllers/users');
 const postsController = require('./controllers/posts');
+const goalsController = require('./controllers/goals');
+const trackController = require('./controllers/track');
 
 const app = express()
 const port = process.env.PORT || 3000;
@@ -27,6 +29,8 @@ app
     .use(express.json())
     .use('/users', usersController )
     .use('/posts', postsController)
+    .use('/goals', goalsController)
+    .use('/track', trackController)
 
 app
     .get('*', (req, res) => res.sendFile(path.join(__dirname, '../docs/index.html')) )

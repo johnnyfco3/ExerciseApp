@@ -15,17 +15,18 @@
         <div class="column is-fullwidth">
       <div class="card">
         <div class="card-content">
-            <div class="content">
+            <div class="content" v-for=" (g) in goal" :key="g._id">
               <form @submit.prevent="add()">
                 <div class="field">
                     <h1 class="subtitle is-8">Monday</h1>
+                    
                     <div class="columns is-multiline">
                         <div class="column is-one-fifth">
                             <div class="control">
                                 <label class="label">Choose Workout</label>
                                 <div class="select" name="category">
-                                  <select v-model="goals.categoryM">
-                                    <option>{{goal.categoryM}}</option>
+                                  <select v-model="newGoal.categoryM">
+                                    <option>{{g.categoryM}}</option>
                                     <option>Chest/Triceps</option>
                                     <option>Back/Biceps</option>
                                     <option>Legs</option>
@@ -39,7 +40,7 @@
                         <div class="column">
                             <div class="control">
                                 <label class="label">Notes</label>
-                                <textarea class="textarea" v-model="goals.mon" :placeholder="goal.mon"></textarea>
+                                <input class="textarea" v-model="newGoal.mon" :placeholder="g.mon"/>
                             </div>
                         </div>
                     </div>
@@ -51,8 +52,8 @@
                           <div class="control">
                               <label class="label">Choose Workout</label>
                               <div class="select" name="category">
-                                <select v-model="goals.categoryT">
-                                  <option>{{goal.categoryT}}</option>
+                                <select v-model="newGoal.categoryT">
+                                  <option>{{g.categoryT}}</option>
                                   <option>Chest/Triceps</option>
                                   <option>Back/Biceps</option>
                                   <option>Legs</option>
@@ -66,7 +67,7 @@
                       <div class="column">
                           <div class="control">
                               <label class="label">Notes</label>
-                              <textarea class="textarea" v-model="goals.tues" :placeholder="goal.tues"></textarea>
+                              <input class="textarea" v-model="newGoal.tues" :placeholder="g.tues" />
                           </div>
                       </div>
                   </div>
@@ -78,8 +79,8 @@
                         <div class="control">
                             <label class="label">Choose Workout</label>
                             <div class="select" name="category">
-                              <select v-model="goals.categoryW">
-                                <option>{{goal.categoryW}}</option>
+                              <select v-model="newGoal.categoryW">
+                                <option>{{g.categoryW}}</option>
                                 <option>Chest/Triceps</option>
                                 <option>Back/Biceps</option>
                                 <option>Legs</option>
@@ -93,7 +94,7 @@
                     <div class="column">
                         <div class="control">
                             <label class="label">Notes</label>
-                            <textarea class="textarea" v-model="goals.weds" :placeholder="goal.weds"></textarea>
+                            <input class="textarea" v-model="newGoal.weds" :placeholder="g.weds" />
                         </div>
                     </div>
                 </div>
@@ -105,8 +106,8 @@
                       <div class="control">
                           <label class="label">Choose Workout</label>
                           <div class="select" name="category">
-                            <select v-model="goals.categoryTH">
-                              <option>{{goal.categoryTH}}</option>
+                            <select v-model="newGoal.categoryTH">
+                              <option>{{g.categoryTH}}</option>
                               <option>Chest/Triceps</option>
                               <option>Back/Biceps</option>
                               <option>Legs</option>
@@ -120,7 +121,7 @@
                   <div class="column">
                       <div class="control">
                           <label class="label">Notes</label>
-                          <textarea class="textarea" v-model="goals.thurs" :placeholder="goal.thurs"></textarea>
+                          <input class="textarea" v-model="newGoal.thurs" :placeholder="g.thurs" />
                       </div>
                   </div>
               </div>
@@ -132,8 +133,8 @@
                     <div class="control">
                         <label class="label">Choose Workout</label>
                         <div class="select" name="category">
-                          <select v-model="goals.categoryF">
-                            <option>{{goal.categoryF}}</option>
+                          <select v-model="newGoal.categoryF">
+                            <option>{{g.categoryF}}</option>
                             <option>Chest/Triceps</option>
                             <option>Back/Biceps</option>
                             <option>Legs</option>
@@ -147,7 +148,7 @@
                 <div class="column">
                     <div class="control">
                         <label class="label">Notes</label>
-                        <textarea class="textarea" v-model="goals.fri" :placeholder="goal.fri"></textarea>
+                        <input class="textarea" v-model="newGoal.fri" :placeholder="g.fri" />
                     </div>
                 </div>
             </div>
@@ -159,8 +160,8 @@
                   <div class="control">
                       <label class="label">Choose Workout</label>
                       <div class="select" name="category">
-                        <select v-model="goals.categorySA">
-                          <option>{{goal.categorySA}}</option>
+                        <select v-model="newGoal.categorySA">
+                          <option>{{g.categorySA}}</option>
                           <option>Chest/Triceps</option>
                           <option>Back/Biceps</option>
                           <option>Legs</option>
@@ -174,7 +175,7 @@
               <div class="column">
                   <div class="control">
                       <label class="label">Notes</label>
-                      <textarea class="textarea" v-model="goals.sat" :placeholder="goal.sat"></textarea>
+                      <input class="textarea" v-model="newGoal.sat" :placeholder="g.sat" />
                   </div>
               </div>
           </div>
@@ -186,8 +187,8 @@
                 <div class="control">
                     <label class="label">Choose Workout</label>
                     <div class="select" name="category">
-                      <select v-model="goals.categoryS">
-                        <option>{{goal.categoryS}}</option>
+                      <select v-model="newGoal.categoryS">
+                        <option>{{g.categoryS}}</option>
                         <option>Chest/Triceps</option>
                         <option>Back/Biceps</option>
                         <option>Legs</option>
@@ -201,7 +202,7 @@
             <div class="column">
                 <div class="control">
                     <label class="label">Notes</label>
-                    <textarea class="textarea" v-model="goals.sun" :placeholder="goal.sun"></textarea>
+                    <input class="textarea" v-model="newGoal.sun" :placeholder="g.sun" />
                 </div>
             </div>
         </div>
@@ -223,8 +224,8 @@
 <script>
 import Nav from '../components/Nav.vue'
 import UserInfo from '../components/UserInfo.vue'
-import { Add, GetGoalWall } from '../services/goals'
 import session from '../services/session'
+import { Add, GetGoalWall } from '../services/goals'
 
 export default {
   components: { 
@@ -233,18 +234,18 @@ export default {
     },
     data: ()=> ({
       goal: [],
-      goals: []
+      newGoal: []
     }),
     async mounted(){
       this.goal = await GetGoalWall(session.user.handle)
   },
     methods: {
         async add(){
-            const response = await Add(this.goals);
+            const response = await Add(this.newGoal);
             console.log({response});
 
             if(response){
-                this.track.unshift(this.goals);
+                this.goals.unshift(this.newGoal);
                 this.$router.push('/planner');
       
             }

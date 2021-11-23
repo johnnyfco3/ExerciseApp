@@ -79,7 +79,7 @@ export default {
   },
   methods: {
     async update(){
-      const response = await Update(session.user.user_id, session.user);
+      const response = await Update(session.user.user_id, this.user);
       console.log({response});
 
       if(response){

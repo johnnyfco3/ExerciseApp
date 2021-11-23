@@ -11,12 +11,24 @@ app
         })
         .catch(next);
     })
+    .get("/wall/:handle", (req, res, next) =>{
+        model   .GetTrackWall(req.params.handle)
+                .then( x=> res.send(x) )
+                .catch(next);    
+    })
     .get("/:track_id", (req, res, next)=>{
         model.Get(req.params.track_id)
         .then(track=>{
             res.send(track);
         })
         .catch(next);
+    })
+    .get("/byhandle/:handle", (req, res, next) =>{
+        model.GetByHandle(req.params.handle)
+            .then(user=>{ 
+                res.send(user);
+            })
+            .catch(next) 
     })
     .post("/", (req, res, next)=>{
         model.Add(req.body)

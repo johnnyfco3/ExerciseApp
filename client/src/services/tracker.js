@@ -3,11 +3,13 @@ import { api } from "./myFetch";
 
 export function GetAll() { return api('track'); }
 
-export function Get(track_id) { return api('track/' + track_id); }
-
 export function GetTrackWall(handle) {
     return api('track/wall/' + handle);
 }
+
+export function Get(track_id) { return api('track/' + track_id); }
+
+export function GetByHandle(handle) { return  api('track/byhandle/' + handle); }
 
 export function Add(track) {
     return api('track', track);

@@ -40,7 +40,7 @@ export default {
     users: []
   }),
   async mounted(){
-    this.posts = await GetByHandle(session.user.handle)
+    this.users = await GetByHandle(session.user.handle)
   },
 }
 </script>

@@ -9,7 +9,7 @@
       <li><router-link to="/planner">Workout Planner</router-link></li>
     </ul>
   </div>
-        <div class="columns is-multiline is-mobile">
+        <div class="columns is-multiline is-mobile" v-for=" (t) in tracker" :key="t._id">
           <div class="column is-half">
             <h1 class="subtitle1">Upper Body</h1>
             <table class="table is-striped">
@@ -23,17 +23,17 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{tracker.cBench}}</td>
-                    <td>{{tracker.cIBench}}</td>
-                    <td>{{tracker.cOPress}}</td>
-                    <td>{{tracker.cDeadlift}}</td>
+                    <td>{{t.cBench}}</td>
+                    <td>{{t.cIBench}}</td>
+                    <td>{{t.cOPress}}</td>
+                    <td>{{t.cDeadlift}}</td>
                   </tr>
                 </tbody>
               </table>
           <div class="begin">
-            <a class="button is-primary" style="font-weight: 600;" href="trackdtls.html">
-                Edit
-              </a>
+            <router-link class="button is-primary" style="font-weight: 600;" to="/trackdtls">
+                Add New
+            </router-link>
           </div>
            </div>
             <div class="column is-half">
@@ -48,9 +48,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{{tracker.cBSquats}}</td>
-                    <td>{{tracker.cSSquats}}</td>
-                    <td>{{tracker.cGBridges}}</td>
+                    <td>{{t.cBSquats}}</td>
+                    <td>{{t.cSSquats}}</td>
+                    <td>{{t.cGBridges}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -71,14 +71,14 @@
             </thead>
             <tbody>
               <tr>
-                <td>{{tracker.cMiles}}</td>
+                <td>{{t.cMiles}}</td>
               </tr>
             </tbody>
           </table>
       <div class="begin">
-        <a class="button is-primary" style="font-weight: 600;" href="trackdtls.html">
-            Edit
-          </a>
+        <router-link class="button is-primary" style="font-weight: 600;" to="/trackdtls">
+                Add New
+            </router-link>
       </div>
       </div>
       </div>

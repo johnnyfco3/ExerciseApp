@@ -43,16 +43,18 @@ module.exports.GetAll = function GetAll() { return collection.find().toArray(); 
 module.exports.Get = track_id => collection.findOne({_id: new ObjectId(track_id) });
 
 module.exports.GetTrackWall = function GetTrackWall(handle) {
-    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray;
+    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
-module.exports.Add = function Add(track) {
+module.exports.GetByHandle = (handle) => collection.findOne({handle});
+
+module.exports.Add = async function Add(track) {
     const response = await collection.insertOne(track);
     track_id = response.insertedId;
     return { ...track };
 }
 
-module.exports.Update = function Update(track_id, track) {
+module.exports.Update = async function Update(track_id, track) {
     const result = await collection.findOneAndUpdate(
         {_id: new ObjectId(track_id)},
         {$set: track},
@@ -62,7 +64,7 @@ module.exports.Update = function Update(track_id, track) {
     return result.value;
 }
 
-module.exports.Delete = function Delete(track_id) {
+module.exports.Delete = async function Delete(track_id) {
     const result = await collection.findOneAndDelete({_id: new ObjectId(track_id)});
     return result.value;
 }

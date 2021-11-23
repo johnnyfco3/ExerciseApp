@@ -1,14 +1,11 @@
 <template>
-    <div class="buttons" v-if="!Session.user">
+    <div class="buttons">
         <a class="button is-primary" @click="signup">
             <strong>Sign up</strong>
         </a>
         <a class="button is-info" @click="login">
             <strong>Log in</strong>
         </a>
-    </div>
-    <div v-else>
-        {{name}}
     </div>
 </template>
 
@@ -27,11 +24,6 @@ export default {
         },
         signup (){
             this.$router.push('/signup')
-        }
-    },
-    computed: {
-        name(){
-            return this.Session.user.handle;
         }
     }
 }

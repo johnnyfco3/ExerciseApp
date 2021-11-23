@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
       <Nav />
-      <searchbar />
+      <Searchbar />
       <div class="columns is-multiline">
       <div class="column is-two-fifths">
         <div class="user-image">

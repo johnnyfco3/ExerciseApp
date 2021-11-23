@@ -21,7 +21,7 @@ const list = [
         categorySA: "Rest",
         categoryS: "Rest",
         user_handle: "johnnyfco",
-        isPublic: false,
+        isPublic: false
     }
 ];
 
@@ -38,11 +38,11 @@ const addOwnerPipeline = [
 
 module.exports.GetAll = function GetAll() { return collection.aggregate(addOwnerPipeline).toArray(); }
 
-module.exports.Get = function Get(goal_id) {collection.findOne({_id: new ObjectId(goal_id) }); }
-
 module.exports.GetGoalWall = function GetGoalWall(handle) {
-    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray;
+    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
+
+module.exports.Get = function Get(goal_id) {collection.findOne({_id: new ObjectId(goal_id) }); }
 
 module.exports.Add = async function Add(goal) {
      const response = await collection.insertOne(goal);
@@ -59,10 +59,10 @@ module.exports.Update = async function Update(goal_id, goal) {
         {returnDocument: 'after'}
     );
 
-    return result.value;
+    return {...result.value};
 }
 
-module.exports.Delete = function Delete(goal_id) {
+module.exports.Delete = async function Delete(goal_id) {
     const result = await collection.findOneAndDelete({_id: new ObjectId(goal_id)});
     return result.value;
 }
