@@ -40,6 +40,14 @@
               <button class="button is-link">Log In</button>
             </div>
           </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-success" type="button" @click="loginGoogle()">
+                Login with Google
+              </button>
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+          </div>
         </form>
           <hr class="navbar-divider">
           Don't have an account, <a @click="signup">Sign up</a>
@@ -66,8 +74,29 @@ export default {
     },
     signup (){
             this.$router.push('/signup')
+        },
+    loginGoogle(){
+            auth.signIn().then(x=> console.log({x}))
         }
   }
+}
+
+/*global gapi */
+let auth;
+const tag = document.createElement('script');
+tag.id = "google-auth-script";
+tag.src = 'https://apis.google.com/js/platform.js';
+
+document.head.append(tag);
+
+tag.onload = () => {
+    gapi.load('auth2', function() {
+        gapi.auth2.init({
+            client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID
+        }).then()
+        
+
+    });
 }
 </script>
 

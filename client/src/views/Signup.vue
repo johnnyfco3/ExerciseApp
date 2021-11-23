@@ -104,7 +104,7 @@ export default {
             console.log({response});
 
             if(response){
-                this.posts.unshift(this.users);
+                this.users.unshift(this.users);
                 this.$router.push('/home');
             }
         }

@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-            <tr v-for="u in list" :key="u.handle">
+            <tr v-for="u in list" :key="u._id">
                 <td>{{u.following.handle}}</td>
                 <td>{{u.followers.handle}}</td>
           </tr>
