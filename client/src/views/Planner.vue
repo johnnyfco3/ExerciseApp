@@ -226,6 +226,7 @@ import Nav from '../components/Nav.vue'
 import UserInfo from '../components/UserInfo.vue'
 import session from '../services/session'
 import { Add, GetGoalWall } from '../services/goals'
+import router from "../router";
 
 export default {
   components: { 
@@ -234,7 +235,8 @@ export default {
     },
     data: ()=> ({
       goal: [],
-      newGoal: []
+      newGoal: [],
+      toRoute: '/planner'
     }),
     async mounted(){
       this.goal = await GetGoalWall(session.user.handle)
@@ -246,7 +248,7 @@ export default {
 
             if(response){
                 this.goals.unshift(this.newGoal);
-                this.$router.push('/planner');
+                router.push(this.toRoute);
       
             }
         }

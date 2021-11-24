@@ -46,12 +46,19 @@ const addOwnerPipeline = [
     { $project: { "owner.password": 0}}
 ];
 
+const addOwnerPipeline2 = [
+    {"$lookup" : {
+        from: "users",
+        localField: 'user_handle',
+        foreignField: 'handle',
+        as: 'user',
+    }},
+    {$unwind: "$user"},
+    { $project: { "owner.password": 0}}
+];
+
 module.exports.GetAll = function GetAll() {
     return collection.aggregate(addOwnerPipeline).toArray();
-}
-
-module.exports.GetWall = function GetWall(handle) {
-    return collection.aggregate(addOwnerPipeline).match({ user_handle: handle }).toArray();
 }
 
 module.exports.GetFeed_ = function GetFeed_(handle) {
@@ -82,6 +89,10 @@ module.exports.GetFeed = async function (handle) {
         {$match: { user_handle: {$in: targets} } },
      ].concat(addOwnerPipeline));
     return query.toArray();
+}
+
+module.exports.GetWall = function GetWall(handle) {
+    return collection.aggregate(addOwnerPipeline2).match({ user_handle: handle }).toArray();
 }
 
 module.exports.Get = function Get(post_id) { return collection.findOne({_id: new ObjectId(post_id) }); }

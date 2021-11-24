@@ -137,12 +137,14 @@
 import Nav from '../components/Nav.vue'
 import session from '../services/session'
 import { Add, GetTrackWall} from '../services/tracker'
+import router from "../router";
 
 export default {
   components: { Nav },
   data: ()=> ({
     tracker: [],
-    track: []
+    track: [],
+    toRoute: '/track'
   }),
   async mounted(){
     this.tracker = await GetTrackWall(session.user.handle)
@@ -154,7 +156,7 @@ export default {
 
             if(response){
                 this.track.unshift(this.track);
-                this.$router.push('/track');
+                router.push(this.toRoute);
             }
         }
     }

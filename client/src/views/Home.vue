@@ -12,8 +12,8 @@
     <Searchbar />
 
       <div class="bottom-content">
-          <div class="post" v-for="(p, i) in posts" :key="p.src">
-            <post :post="p" @remove="remove(p, i)" />
+          <div class="post" v-for="(p) in posts" :key="p.src">
+            <post :post="p" />
         </div>
 </div>
 </div>
@@ -22,8 +22,8 @@
 <script>
 import Nav from '../components/Nav.vue';
 import Post from '../components/Post.vue';
-import session from '../services/session'
-import { GetFeed, Delete } from '../services/posts'
+import session from '../services/session';
+import { GetFeed} from '../services/posts';
 import Searchbar from '../components/Searchbar.vue';
   
 export default {
@@ -37,14 +37,6 @@ export default {
   }),
   async mounted(){
     this.posts = await GetFeed(session.user.handle)
-  },
-  methods:{
-    async remove(post, i){
-      const response = await Delete(post._id)
-      if(response.deleted){
-        this.posts.splice(i, 1)
-      }
-    }
   }
 }
 

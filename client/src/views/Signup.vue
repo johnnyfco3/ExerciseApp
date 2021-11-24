@@ -16,56 +16,56 @@
                         <div class="field">
                             <label class="label">First Name</label>
                             <div class="control">
-                              <input class="input is-info" type="text" name="name" required v-model="users.firstName">
+                              <input class="input is-info" type="text" name="name" required v-model="user.firstName">
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Last Name</label>
                             <div class="control">
-                              <input class="input is-info" type="text" name="name" required v-model="users.lastName">
+                              <input class="input is-info" type="text" name="name" required v-model="user.lastName">
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Age</label>
                             <div class="control">
-                              <input class="input is-info" type="number" name="age" required v-model="users.age">
+                              <input class="input is-info" type="number" name="age" required v-model="user.age">
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Height</label>
                             <div class="control">
-                              <input class="input is-info" type="text" name="height" placeholder="#ft #in" required v-model="users.height">
+                              <input class="input is-info" type="text" name="height" placeholder="#ft #in" required v-model="user.height">
                             </div>
                           </div>
 
                           <div class="field">
                           <label class="label">Weight</label>
                           <div class="control">
-                            <input class="input is-info" type="number" name="weight" placeholder="lbs" v-model="users.weight">
+                            <input class="input is-info" type="number" name="weight" placeholder="lbs" v-model="user.weight">
                           </div>
                         </div>
 
                         <div class="field">
                           <label class="label">Username</label>
                           <div class="control">
-                            <input class="input is-info" type="text" name="username" required v-model="users.handle">
+                            <input class="input is-info" type="text" name="username" required v-model="user.handle">
                           </div>
                         </div>
 
                         <div class="field">
                           <label class="label">Create a Password</label>
                           <div class="control">
-                            <input class="input is-info" type="password" name="password" required v-model="users.password">
+                            <input class="input is-info" type="password" name="password" required v-model="user.password">
                           </div>
                        </div>
 
                         <div class="field">
                             <label class="label">Email Address</label>
                             <div class="control">
-                              <input class="input is-info" type="email" name="email" required v-model="users.emails">
+                              <input class="input is-info" type="email" name="email" required v-model="user.emails">
                             </div>
                           </div>
                         
@@ -93,19 +93,21 @@
 
 <script>
 import { Add } from '../services/users';
+import router from "../router";
 
 export default {
   data: ()=> ({
-        users: []
+        user: [],
+        toRoute: '/login'
     }),
     methods: {
         async register(){
-            const response = await Add(this.users);
+            const response = await Add(this.user);
             console.log({response});
 
             if(response){
-                this.users.unshift(this.users);
-                this.$router.push('/home');
+                this.users.unshift(this.user);
+                router.push(this.toRoute);
             }
         }
     }

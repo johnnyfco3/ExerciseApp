@@ -101,6 +101,9 @@ DELETE  http://localhost:3000/users/619c0f8e72889e29432926aa
 ###
 POST http://localhost:3000/users/seed
 
+###
+###
+http://localhost:3000/users/byhandle/johnnyfco
 
 ####################################################
 http://localhost:3000/posts

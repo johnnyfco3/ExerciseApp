@@ -65,6 +65,7 @@ import Nav from '../components/Nav.vue'
 import { GetByHandle } from '../services/users'
 import session from '../services/session'
 import { Update } from '../services/users'
+import router from "../router";
 
 export default {
   components: { 
@@ -72,7 +73,8 @@ export default {
     },
     data: ()=> ({
       users: [],
-      user: []
+      user: [],
+      toRoute: '/profile'
   }),
   async mounted(){
     this.users = await GetByHandle(session.user.handle)
@@ -83,7 +85,7 @@ export default {
       console.log({response});
 
       if(response){
-          this.$router.push('/profile');
+          router.push(this.toRoute);
       }
     }
   },
