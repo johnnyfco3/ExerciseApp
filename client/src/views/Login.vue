@@ -76,9 +76,11 @@ export default {
             this.$router.push('/signup')
         },
     loginGoogle(){
-            auth.signIn().then(x=> console.log({x}))
-        }
-  }
+            auth.signIn().then(x=> {
+                console.log({x})
+        })
+    }
+    }
 }
 
 /*global gapi */
@@ -94,6 +96,10 @@ tag.onload = () => {
         gapi.auth2.init({
             client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID
         }).then()
+        .then(()=> {
+                auth = gapi.auth2.getAuthInstance();
+                
+            })
         
 
     });
