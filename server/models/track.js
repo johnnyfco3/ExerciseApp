@@ -58,7 +58,8 @@ module.exports.Update = async function Update(track_id, track) {
     const result = await collection.findOneAndUpdate(
         {_id: new ObjectId(track_id)},
         {$set: track},
-        {returnDocument: 'after'}
+        {returnDocument: 'after'},
+        {upsert:true}
     );
 
     return result.value;

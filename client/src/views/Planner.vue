@@ -5,7 +5,7 @@
   <div class="tabs is-centered">
     <ul>
       <li><router-link to="/profile">Highlights</router-link></li>
-      <li><router-link to="/track">Progress Tracker</router-link></li>
+      <li><router-link to="/trackdts">Progress Tracker</router-link></li>
       <li class="is-active"><a>Workout Planner</a></li>
     </ul>
   </div>

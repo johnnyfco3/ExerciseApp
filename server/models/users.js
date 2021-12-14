@@ -24,6 +24,11 @@ const list = [
                 handle: 'vp', isApproved: true 
             }
         ],
+        followers: [ 
+            { 
+                handle: 'johnnyfco', isApproved: true 
+            }
+        ],
         get name(){ return this.firstName + ' ' + this.lastName },
     },
     { 
@@ -40,6 +45,11 @@ const list = [
             "vp@wh.com"
         ],
         following: [ 
+            { 
+                handle: 'johnnyfco', isApproved: true 
+            }
+        ],
+        followers: [ 
             { 
                 handle: 'johnnyfco', isApproved: true 
             }
@@ -73,7 +83,8 @@ module.exports.Update = async function Update(user_id, user) {
     const result = await collection.findOneAndUpdate(
         {_id: new ObjectId(user_id)},
         {$set: user},
-        {returnDocument: 'after'}
+        {returnDocument: 'after'},
+        {upsert:true}
     );
 
     return { ...result.value, password: undefined };

@@ -30,11 +30,6 @@
                   </tr>
                 </tbody>
               </table>
-          <div class="begin">
-            <router-link class="button is-primary" style="font-weight: 600;" to="/trackdtls">
-                Add New
-            </router-link>
-          </div>
            </div>
             <div class="column is-half">
               <h1 class="subtitle1">Lower Body</h1>
@@ -54,11 +49,6 @@
                   </tr>
                 </tbody>
               </table>
-          <div class="begin">
-            <router-link class="button is-primary" style="font-weight: 600;" to="/trackdts">
-                Add New
-            </router-link>
-          </div>
           </div>
           <div class="cardio">
        <div class="column" style="margin-left:350px; margin-top: 50px;">
@@ -76,7 +66,7 @@
             </tbody>
           </table>
       <div class="begin">
-        <router-link class="button is-primary" style="font-weight: 600;" to="/trackdtls">
+        <router-link class="button is-primary" style="font-weight: 600;" to="/trackdts">
                 Add New
             </router-link>
       </div>

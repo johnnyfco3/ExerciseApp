@@ -12,10 +12,10 @@
             <th>Inspires</th>
           </tr>
         </thead>
-        <tbody>
-            <tr v-for="u in list" :key="u._id">
-                <td>{{u.following.handle}}</td>
-                <td>{{u.followers.handle}}</td>
+        <tbody v-for="u in list.following" :key="u.handle">
+            <tr>
+                <td>@{{list.following[0].handle}}</td>
+                <td>@{{list.followers[0].handle}}</td>
           </tr>
         </tbody>
       </table>
