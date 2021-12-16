@@ -8,8 +8,8 @@ export function Add(user) {
      return api('users/register', user);
 }
 
-export function GetFollowers(handle) {
-    return api('users/followers/', handle);
+export function Search() {
+    return api('users/search');
 }
 
 

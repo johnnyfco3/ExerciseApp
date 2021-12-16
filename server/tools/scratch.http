@@ -107,7 +107,7 @@ http://localhost:3000/users/byhandle/johnnyfco
 
 
 ###
-http://localhost:3000/users/followers/johnnyfco
+http://localhost:3000/users/search
 
 ####################################################
 http://localhost:3000/posts

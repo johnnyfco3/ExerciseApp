@@ -166,8 +166,8 @@ module.exports.GetFollowers = function GetFollowers(handle) {
                                                            //from followers array
 }
 
-module.exports.Search = q => collection.find({ 
-    followers: new RegExp(q,"i") }).toArray();
+module.exports.Search = q => collection.find(
+    {   name: new RegExp(q,"i")}).toArray();
 
 
 module.exports.Add = async function Add(user) {
