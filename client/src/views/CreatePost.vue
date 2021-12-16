@@ -33,8 +33,7 @@
 
                           <div class="field">
                             <label class="label">Tag a Friend</label>
-                            <o-autocomplete rounded expanded v-model="name" :users="filteredDataArray" placeholder="e.g. username" icon="search" clearable @select="option => selected = option">
-                              <template v-slot:empty>No results found</template>
+                            <o-autocomplete v-model="name" group-field="type" group-options="items" open-on-focus :data="filteredDataObj" field="user.first_name" @select="option => (selected = option)">
                             </o-autocomplete>
                           </div>
 
@@ -84,7 +83,7 @@
 import Nav from '../components/Nav.vue'
 import { Add } from '../services/posts';
 import session from '../services/session';
-import {GetFollowers} from '../services/users';
+//import {GetFollowers} from '../services/users';
 
 const newPost = () =>({ user: session.user, user_handle: session.user.handle });
 
@@ -95,24 +94,30 @@ export default {
     data() {
       return {
         newPost: newPost(),
-        users: [],
+        data: [
+          {
+            type: 'Fruit',
+            items: ['Apple', 'Banana', 'Watermelon']
+          },
+          {
+            type: 'Vegetables',
+            items: ['Carrot', 'Broccoli', 'Cucumber', 'Onion']
+          }
+        ],
         name: '',
         selected: null
       }
     },
-    async mounted(){
-      this.users = await GetFollowers(session.user.handle)
-    },
     computed: {
-      filteredDataArray() {
-        return this.users.filter(option => {
-          return (
-            option
-              .toString()
-              .toLowerCase()
-              .indexOf(this.name.toLowerCase()) >= 0
-          )
+      filteredDataObj() {
+        const newData = []
+        this.data.forEach(element => {
+          const items = element.items.filter(item => item.toLowerCase().indexOf(this.name.toLowerCase()) >= 0)
+          if (items.length) {
+            newData.push({ type: element.type, items })
+          }
         })
+        return newData
       }
     },
     methods: {

@@ -12,13 +12,8 @@ app
         })
         .catch(next) 
     })
-    .get("/search", (req, res, next) =>{
-        model   .Search(req.query.q)
-                .then( x=> res.send(x) )
-                .catch(next)    
-    })
-    .get("/followers/:handle", (req, res, next) =>{
-        model.GetFollowers(req.params.handle)
+    .get("/byhandle/:handle", (req, res, next) =>{
+        model.GetByHandle(req.params.handle)
             .then(user=>{ 
                 res.send(user);
             })
