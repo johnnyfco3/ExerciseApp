@@ -31,6 +31,13 @@
                               </div>
                             </div>
 
+                          <div class="field">
+                            <label class="label">Tag a Friend</label>
+                            <o-autocomplete rounded expanded v-model="name" :users="filteredDataArray" placeholder="e.g. username" icon="search" clearable @select="option => selected = option">
+                              <template v-slot:empty>No results found</template>
+                            </o-autocomplete>
+                          </div>
+
                         <div class="field">
                             <label class="label">Category</label>
                             <div class="select">
@@ -77,6 +84,7 @@
 import Nav from '../components/Nav.vue'
 import { Add } from '../services/posts';
 import session from '../services/session';
+import {GetFollowers} from '../services/users';
 
 const newPost = () =>({ user: session.user, user_handle: session.user.handle });
 
@@ -84,9 +92,29 @@ export default {
   components: { 
       Nav
     },
-    data: ()=> ({
-        newPost: newPost()
-    }),
+    data() {
+      return {
+        newPost: newPost(),
+        users: [],
+        name: '',
+        selected: null
+      }
+    },
+    async mounted(){
+      this.users = await GetFollowers(session.user.handle)
+    },
+    computed: {
+      filteredDataArray() {
+        return this.users.filter(option => {
+          return (
+            option
+              .toString()
+              .toLowerCase()
+              .indexOf(this.name.toLowerCase()) >= 0
+          )
+        })
+      }
+    },
     methods: {
         async add(){
             const response = await Add(this.newPost);

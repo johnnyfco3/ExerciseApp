@@ -8,6 +8,10 @@ export function Add(user) {
      return api('users/register', user);
 }
 
+export function GetFollowers(handle) {
+    return api('users/followers/', handle);
+}
+
 
 export function Update(user_id, user) {
     return api('users/' + user_id, user, 'PATCH');

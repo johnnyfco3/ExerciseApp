@@ -12,6 +12,18 @@ app
         })
         .catch(next) 
     })
+    .get("/search", (req, res, next) =>{
+        model   .Search(req.query.q)
+                .then( x=> res.send(x) )
+                .catch(next)    
+    })
+    .get("/followers/:handle", (req, res, next) =>{
+        model.GetFollowers(req.params.handle)
+            .then(user=>{ 
+                res.send(user);
+            })
+            .catch(next) 
+    })
     .get("/:user_id", (req, res, next) =>{
         model.Get(req.params.user_id)
            .then(user=>{ 
@@ -19,13 +31,6 @@ app
            })
            .catch(next) 
    })
-   .get("/byhandle/:handle", (req, res, next) =>{
-        model.GetByHandle(req.params.handle)
-            .then(user=>{ 
-                res.send(user);
-            })
-            .catch(next) 
-    })
     .patch("/:user_id", (req, res, next) =>{
 
         model   .Update(req.params.user_id, req.body)
